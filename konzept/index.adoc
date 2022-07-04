@@ -4,6 +4,7 @@
 
 * excursion-guide
 * tour-assistant
+* LeoTour
 
 * Schnitzeljagd ... paper chase
 
@@ -14,7 +15,6 @@
 
 Bei Reisen in Gruppen zB bei schulbezogenen Reiseveranstaltungen ist es wichtig, die Teilnehmer über Treffpunkte, Zustiegspunkte und ev. auch über Sehenswürdigkeiten zu informieren.
 
-Dabei sollen diese detaillierten Informationen (GeoKoordinaten) erst sichtbar sein, wenn man sie braucht.
 
 * Beispiel:
 ** Man besucht Mailand, Florenz und Pisa.
@@ -43,10 +43,18 @@ Dabei sollen diese detaillierten Informationen (GeoKoordinaten) erst sichtbar se
 * Werden die Infos vom User abgerufen, werden die Punkte in Google Maps oder osm angezeigt und es kann direkt dorthin geroutet werden
 * Zum Abrufen der Informationen gibt es entweder eine Zeitsteuerung (eher nicht) oder der Reiseleiter / Creator kann die Information auf seiner App freigeben.
 
+
+* Diese detaillierten Informationen sollen (GeoKoordinaten) erst sichtbar sein, wenn man sie braucht.
+
+** Hierbei kann man entscheiden, welche Informationen sofort verfügbar sind (grobe Reiseübersicht) und welche Informationen erst zu einem gewissen Zeitpunkt freigegeben werden (Zeit und Koordinaten von zB Zustiegspunkten).
+** Auch ist es wichtig, auf geänderte Situationen reagieren zu können, dh wenn man in der Stadt ankommt und feststellen muss, dass aufgrund einer Baustelle, einer Veranstaltung, usw. die geplanten Treffpunkte nicht möglich sind, dass diese einfach geändert werden können (zB automatische Erfassung des derzeitign Standortes)
+** auch eine Weckerfunktion wäre möglich, dh die Teilnehmer werden benachrchtigt, wenn der Zeitpunkt des Treffpunktes naht.
+
 * Entscheidung MobileApp oder WebApp
 ** Ev. Creator-Mode in einer mobile App
 ** User-Mode in einer Web-App
 *** Der Link zur User-Website ist per QR-Code verfuegbar
+
 
 === Schnitzeljagd-App
 
@@ -59,8 +67,10 @@ Dabei sollen diese detaillierten Informationen (GeoKoordinaten) erst sichtbar se
 
 * Angular
 * Quarkus
-* Android Jetpack Compose
-
-
+* (Android Jetpack Compose)
+* Kotlin Multiplatform
+** https://www.jetbrains.com/de-de/lp/compose-mpp/
+** https://kotlinlang.org/lp/mobile/
+** https://medium.com/47billion/kotlin-multiplatform-mobile-780e6978461
 
 
