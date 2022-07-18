@@ -1,0 +1,51 @@
+@startuml
+
+'!theme plain
+left to right direction
+'skinparam linetype ortho
+
+class Event {
+  - name: String
+  - type: EventType
+  - plannedStartDateTime: LocalDateTime
+  - plannedEndDateTime: LocalDateTime
+}
+
+class Person {
+  - firstname: String
+  - lastname: String
+  - event: Event
+  - role: Role
+  - telephone: String
+  - comment: String
+}
+
+class Topic {
+  - name: String
+  - event: Event
+  - previousTopic: Topic
+}
+
+class Activity {
+  - activityName: String
+  - startDateTime: LocalDateTime
+  - longitude: double
+  - latitude: double
+  - previousActivity: Activity
+  - belongsTo: Topic
+}
+
+enum Role {
+  IN-CHARGE
+  STAFF
+  MEMBER
+}
+
+Event        "1" <-- "*" Topic
+Event        "1" <-- "*" Person
+Event        "1" <-- "*" Member : "is member"
+Person        "*" --> "1" Role
+Activity     "1" <-- "1" Activity : previous
+Topic        "1" <-- "*" Activity : belongsTo
+Topic        "1" <-- "1" Topic : previous
+@enduml
