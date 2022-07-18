@@ -24,6 +24,7 @@ class Topic {
   - name: String
   - event: Event
   - previousTopic: Topic
+  - comment: String
 }
 
 class Activity {
@@ -33,6 +34,7 @@ class Activity {
   - latitude: double
   - previousActivity: Activity
   - belongsTo: Topic
+  - comment: String
 }
 
 enum Role {
@@ -43,7 +45,6 @@ enum Role {
 
 Event        "1" <-- "*" Topic
 Event        "1" <-- "*" Person
-Event        "1" <-- "*" Member : "is member"
 Person        "*" --> "1" Role
 Activity     "1" <-- "1" Activity : previous
 Topic        "1" <-- "*" Activity : belongsTo
