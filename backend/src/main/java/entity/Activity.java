@@ -1,9 +1,9 @@
 package entity;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,10 +22,14 @@ public class Activity extends PanacheEntityBase {
     private Topic belongsTo;
     private String comment;
 
+    private boolean isPublic;
+
+    private LocalDate publicationDate;
+
     public Activity() {
     }
 
-    public Activity(String activityName, LocalDateTime startDateTime, double longitude, double latitude, Activity previousActivity, Topic belongsTo, String comment) {
+    public Activity(String activityName, LocalDateTime startDateTime, double longitude, double latitude, Activity previousActivity, Topic belongsTo, String comment, boolean isPublic, LocalDate publicationDate) {
         this.activityName = activityName;
         this.startDateTime = startDateTime;
         this.longitude = longitude;
@@ -33,6 +37,8 @@ public class Activity extends PanacheEntityBase {
         this.previousActivity = previousActivity;
         this.belongsTo = belongsTo;
         this.comment = comment;
+        this.isPublic = isPublic;
+        this.publicationDate = publicationDate;
     }
 
     public String getActivityName() {
@@ -99,6 +105,23 @@ public class Activity extends PanacheEntityBase {
         this.id = id;
     }
 
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
+    }
+
+    public LocalDate getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(LocalDate publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+
     @Override
     public String toString() {
         return "Activity{" +
@@ -110,6 +133,8 @@ public class Activity extends PanacheEntityBase {
                 ", previousActivity=" + previousActivity +
                 ", belongsTo=" + belongsTo +
                 ", comment='" + comment + '\'' +
+                ", isPublic=" + isPublic +
+                ", publicationDate=" + publicationDate +
                 '}';
     }
 }
