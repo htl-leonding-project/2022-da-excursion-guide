@@ -52,6 +52,7 @@ class PersonResourceTest {
                 .body("firstname ", is("firstname"));
     }
 
+
     @Test
     public void addPerson() {
         given()
