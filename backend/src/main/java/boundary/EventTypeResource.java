@@ -6,6 +6,7 @@ import org.jboss.resteasy.reactive.RestPath;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/api/eventtype")
@@ -28,9 +29,9 @@ public class EventTypeResource {
     @POST
     @Transactional
     @Path("addEvent")
-    public EventType add(EventType eventType){
+    public Response add(EventType eventType){
         eventType.persistAndFlush();
-        return eventType;
+        return Response.ok(eventType).build();
     }
 
     @DELETE
@@ -43,11 +44,11 @@ public class EventTypeResource {
     @PATCH
     @Transactional
     @Path("editEvent/{id}")
-    public EventType edit(@RestPath long id, EventType eventType){
+    public Response edit(@RestPath long id, EventType eventType){
         EventType tmp = EventType.findById(id);
         tmp.setType(eventType.getType());
         tmp.setMaxPersonAllowed(eventType.getMaxPersonAllowed());
-        return eventType;
+        return Response.ok(eventType).build();
     }
 
 }
