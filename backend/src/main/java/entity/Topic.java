@@ -9,9 +9,9 @@ public class Topic extends PanacheEntityBase {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Event event;
-    @OneToOne
+    @OneToOne()
     private Topic previousTopic;
     private String comment;
 
