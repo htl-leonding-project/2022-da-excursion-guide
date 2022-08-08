@@ -45,7 +45,7 @@ public class PersonResource {
     @PATCH
     @Transactional
     @Path("editPerson/{id}")
-    public Person edit(@RestPath long id, Person person){
+    public Response edit(@RestPath long id, Person person){
         Person tmp = Person.findById(id);
         tmp.setComment(person.getComment());
         tmp.setFirstname(person.getFirstname());
@@ -54,7 +54,7 @@ public class PersonResource {
         tmp.setEvent(person.getEvent());
         tmp.setTelephone(person.getTelephone());
         tmp.persistAndFlush();
-        return person;
+        return Response.ok(person).build();
     }
 
 
