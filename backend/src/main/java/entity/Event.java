@@ -12,7 +12,7 @@ public class Event extends PanacheEntityBase {
     private long id;
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private EventType eventType;
     private LocalDateTime planedStartDateTime;
     private LocalDateTime planedEndDateTime;
