@@ -33,7 +33,17 @@ class PersonResourceTest {
     }
 
     @Test
-    public void testPersonById() {
+    public void listAllPerson() {
+        //RestAssured.registerParser("application/octet-stream", Parser.JSON);
+        given()
+                .when().get("/api/person/getAll")
+                .then()
+                .statusCode(200)
+                .body("size()", is(1));
+    }
+
+    @Test
+    public void getPersonById() {
         //RestAssured.registerParser("application/octet-stream", Parser.JSON);
         given()
                 .when().get("/api/person/" + personId)
@@ -43,7 +53,7 @@ class PersonResourceTest {
     }
 
     @Test
-    public void testAdd() {
+    public void addPerson() {
         given()
                 .body(Map.of("firstname", "testFname", "lastname", "testLname"))
                 .contentType(ContentType.JSON)
@@ -62,7 +72,7 @@ class PersonResourceTest {
     }
 
     @Test
-    public void testEdit() {
+    public void editPerson() {
         given()
                 .body(Map.of("firstname", "Editfirstname", "lastname", "Editlastname"))
                 .contentType(ContentType.JSON)
@@ -82,7 +92,7 @@ class PersonResourceTest {
 
 
     @Test
-    public void testDelete() {
+    public void deletePerson() {
         given()
                 .when().delete("/api/person/deletePerson/" + personId)
                 .then()
