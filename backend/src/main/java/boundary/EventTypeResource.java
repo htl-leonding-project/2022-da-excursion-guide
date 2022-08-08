@@ -5,9 +5,12 @@ import org.jboss.resteasy.reactive.RestPath;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/api/eventtype")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class EventTypeResource {
 
     @GET

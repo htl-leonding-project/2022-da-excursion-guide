@@ -5,29 +5,34 @@ import org.jboss.resteasy.reactive.RestPath;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import java.util.List;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
-@Path("/api/person")
+@Path("api/person")
 public class PersonResource {
 
     @GET
     @Path("getAll")
-    public List<Person> list(){
-        return Person.listAll();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(){
+        return Response.ok(Person.listAll()).build();
     }
 
     @GET
     @Path("{id}")
-    public Person getById(long id){
-        return Person.findById(id);
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getById(long id){
+        return Response.ok(Person.findById(id)).build();
     }
 
     @POST
     @Transactional
     @Path("addPerson")
-    public Person add(Person person){
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response add(Person person){
         person.persistAndFlush();
-        return person;
+        return Response.ok(person).build();
     }
 
     @DELETE

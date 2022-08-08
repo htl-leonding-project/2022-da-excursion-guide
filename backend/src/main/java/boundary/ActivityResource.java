@@ -6,20 +6,23 @@ import org.jboss.resteasy.reactive.RestPath;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import java.util.List;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/api/activity ")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ActivityResource {
     @GET
     @Path("getAll")
-    public List<Activity> list(){
-        return Activity.listAll();
+    public Response list(){
+        return Response.ok(Activity.listAll()).build();
     }
 
     @GET
     @Path("{id}")
-    public Activity getById(long id){
-        return Activity.findById(id);
+    public Response getById(long id){
+        return Response.ok(Activity.findById(id)).build();
     }
 
     @POST
