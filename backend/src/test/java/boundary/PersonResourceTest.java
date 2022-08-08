@@ -34,7 +34,6 @@ class PersonResourceTest {
 
     @Test
     public void listAllPerson() {
-        //RestAssured.registerParser("application/octet-stream", Parser.JSON);
         given()
                 .when().get("/api/person/getAll")
                 .then()
@@ -44,7 +43,6 @@ class PersonResourceTest {
 
     @Test
     public void getPersonById() {
-        //RestAssured.registerParser("application/octet-stream", Parser.JSON);
         given()
                 .when().get("/api/person/" + personId)
                 .then()
