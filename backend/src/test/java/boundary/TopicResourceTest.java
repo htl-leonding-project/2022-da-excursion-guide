@@ -33,7 +33,7 @@ class TopicResourceTest {
     }
 
     @Test
-    void listAllTopics() {
+    void getCorrectSizeOfList() {
         given()
                 .when().get("/api/topic/getAll")
                 .then()
