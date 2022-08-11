@@ -16,9 +16,9 @@ public class Activity extends PanacheEntityBase {
     private LocalDateTime startDateTime;
     private double longitude;
     private double latitude;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Activity previousActivity;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Topic belongsTo;
     private String comment;
 
@@ -110,7 +110,7 @@ public class Activity extends PanacheEntityBase {
     }
 
     public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
+        this.isPublic = aPublic;
     }
 
     public LocalDate getPublicationDate() {
