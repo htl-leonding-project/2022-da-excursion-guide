@@ -27,7 +27,7 @@ public class EventTypeResource {
 
     @POST
     @Transactional
-    @Path("addEvent")
+    @Path("addEventType")
     public Response add(EventType eventType){
         eventType.persistAndFlush();
         return Response.ok(eventType).build();
@@ -35,14 +35,14 @@ public class EventTypeResource {
 
     @DELETE
     @Transactional
-    @Path("deleteEvent/{id}")
+    @Path("deleteEventType/{id}")
     public void delete(@RestPath long id){
         EventType.findById(id).delete();
     }
 
     @PATCH
     @Transactional
-    @Path("editEvent/{id}")
+    @Path("editEventType/{id}")
     public Response edit(@RestPath long id, EventType eventType){
         EventType tmp = EventType.findById(id);
         tmp.setType(eventType.getType());
