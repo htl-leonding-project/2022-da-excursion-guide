@@ -33,7 +33,7 @@ class PersonResourceTest {
     }
 
     @Test
-    public void listAllPerson() {
+    public void getCorrectSizeOfList() {
         given()
                 .when().get("/api/person/getAll")
                 .then()
