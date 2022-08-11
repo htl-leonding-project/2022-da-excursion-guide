@@ -7,7 +7,7 @@ import org.jboss.resteasy.reactive.RestPath;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 @Path("/api/event")
 @Produces(MediaType.APPLICATION_JSON)
@@ -15,22 +15,22 @@ import java.util.List;
 public class EventResource {
     @GET
     @Path("getAll")
-    public List<Event> list(){
-        return Event.listAll();
+    public Response list(){
+        return Response.ok(Event.listAll()).build();
     }
 
     @GET
     @Path("{id}")
-    public Event getById(long id){
-        return Event.findById(id);
+    public Response getById(long id){
+        return Response.ok(Event.findById(id)).build();
     }
 
     @POST
     @Transactional
     @Path("addEvent")
-    public Event add(Event event){
+    public Response add(Event event){
         event.persistAndFlush();
-        return event;
+        return Response.ok(event).build();
     }
 
     @DELETE
@@ -43,13 +43,13 @@ public class EventResource {
     @PATCH
     @Transactional
     @Path("editEvent/{id}")
-    public Event edit(@RestPath long id, Event event){
+    public Response edit(@RestPath long id, Event event){
         Event tmp = Event.findById(id);
         tmp.setEventType(event.getEventType());
         tmp.setName(event.getName());
         tmp.setPlanedEndDateTime(event.getPlanedEndDateTime());
         tmp.setPlanedStartDateTime(event.getPlanedStartDateTime());
-        return event;
+        return Response.ok(event).build();
     }
 
 
