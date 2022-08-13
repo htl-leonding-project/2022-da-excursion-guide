@@ -60,13 +60,12 @@ class ActivityResourceTest {
     @Test
     void addActivity() {
         given()
-                .body(Map.of("activityName", "Activity", "isPublic", true,"comment","comment"))
+                .body(Map.of("activityName", "Activity","comment","comment"))
                 .contentType(ContentType.JSON)
                 .when().post("/api/activity/addActivity")
                 .then()
                 .statusCode(200)
                 .body("activityName", is("Activity"))
-                .body("isPublic", is(true))
                 .body("comment", is("comment"));
 
         given()
@@ -74,16 +73,40 @@ class ActivityResourceTest {
                 .then()
                 .statusCode(200)
                 .body("[1].activityName",  is("Activity"))
-                .body("[1].comment", is("comment"))
-                .body("[1].isPublic", is(true)); // second of array because one is always persisted
+                .body("[1].comment", is("comment"));
 
     }
 
     @Test
     void delete() {
+        given()
+                .when().delete("/api/activity/deleteActivity/" + activityId)
+                .then()
+                .statusCode(204);
+
+        given()
+                .when().get("/api/activity/getAll")
+                .then()
+                .statusCode(200)
+                .body("size()", is(0));
     }
 
     @Test
     void edit() {
+        given()
+                .body(Map.of("activityName", "EditActivity","comment","editcomment"))
+                .contentType(ContentType.JSON)
+                .when().patch("/api/activity/editActivity/" + activityId)
+                .then()
+                .statusCode(200)
+                .body("activityName", is("EditActivity"))
+                .body("comment", is("editcomment"));
+
+        given()
+                .when().get("/api/activity/" + activityId)
+                .then()
+                .statusCode(200)
+                .body("activityName", is("EditActivity"))
+                .body("comment", is("editcomment"));
     }
 }

@@ -1,6 +1,5 @@
 package boundary;
 
-import entity.Event;
 import entity.Topic;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
-
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -26,8 +24,6 @@ class TopicResourceTest {
         Topic topic = new Topic();
         topic.setName("topic");
         topic.setComment("comment");
-        topic.setEvent(new Event());
-        topic.setEvent(new Event());
         topic.persistAndFlush();
         topicId = topic.getId();
     }
