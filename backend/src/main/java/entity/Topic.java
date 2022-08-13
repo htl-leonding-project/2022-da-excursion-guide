@@ -6,12 +6,13 @@ import javax.persistence.*;
 
 @Entity
 public class Topic extends PanacheEntityBase {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.DETACH})
     private Event event;
-    @OneToOne()
+    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.DETACH})
     private Topic previousTopic;
     private String comment;
 

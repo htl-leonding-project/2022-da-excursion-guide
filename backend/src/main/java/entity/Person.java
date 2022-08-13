@@ -13,7 +13,7 @@ public class Person extends PanacheEntityBase {
 
     private String firstname;
     private String lastname;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Event event;
     private Role role;
     private String telephone;
