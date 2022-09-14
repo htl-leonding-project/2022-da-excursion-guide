@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Event extends PanacheEntityBase {
@@ -11,9 +12,15 @@ public class Event extends PanacheEntityBase {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private int maxPersonAllowed;
+    private String type;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private EventType eventType;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Person> participant;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Topic> topics;
+
     private LocalDateTime planedStartDateTime;
     private LocalDateTime planedEndDateTime;
 
@@ -21,9 +28,12 @@ public class Event extends PanacheEntityBase {
     public Event() {
     }
 
-    public Event(String name, EventType eventType, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime) {
+    public Event(String name, int maxPersonAllowed, String type, List<Person> participant, List<Topic> topics, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime) {
         this.name = name;
-        this.eventType = eventType;
+        this.maxPersonAllowed = maxPersonAllowed;
+        this.type = type;
+        this.participant = participant;
+        this.topics = topics;
         this.planedStartDateTime = planedStartDateTime;
         this.planedEndDateTime = planedEndDateTime;
     }
@@ -44,14 +54,6 @@ public class Event extends PanacheEntityBase {
         this.name = name;
     }
 
-    public EventType getEventType() {
-        return eventType;
-    }
-
-    public void setEventType(EventType eventType) {
-        this.eventType = eventType;
-    }
-
     public LocalDateTime getPlanedStartDateTime() {
         return planedStartDateTime;
     }
@@ -66,5 +68,37 @@ public class Event extends PanacheEntityBase {
 
     public void setPlanedEndDateTime(LocalDateTime planedEndDateTime) {
         this.planedEndDateTime = planedEndDateTime;
+    }
+
+    public List<Person> getParticipant() {
+        return participant;
+    }
+
+    public void setParticipant(List<Person> participant) {
+        this.participant = participant;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
+    public int getMaxPersonAllowed() {
+        return maxPersonAllowed;
+    }
+
+    public void setMaxPersonAllowed(int maxPersonAllowed) {
+        this.maxPersonAllowed = maxPersonAllowed;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

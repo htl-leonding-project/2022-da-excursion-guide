@@ -45,10 +45,13 @@ public class EventResource {
     @Path("editEvent/{id}")
     public Response edit(@RestPath long id, Event event){
         Event tmp = Event.findById(id);
-        tmp.setEventType(event.getEventType());
         tmp.setName(event.getName());
+        tmp.setMaxPersonAllowed(event.getMaxPersonAllowed());
+        tmp.setType(event.getType());
         tmp.setPlanedEndDateTime(event.getPlanedEndDateTime());
         tmp.setPlanedStartDateTime(event.getPlanedStartDateTime());
+        tmp.setParticipant(event.getParticipant());
+        tmp.setTopics(event.getTopics());
         return Response.ok(event).build();
     }
 

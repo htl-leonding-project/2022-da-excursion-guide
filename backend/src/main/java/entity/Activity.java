@@ -18,8 +18,7 @@ public class Activity extends PanacheEntityBase {
     private double latitude;
     @OneToOne(cascade = CascadeType.ALL)
     private Activity previousActivity;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Topic belongsTo;
+
     private String comment;
 
     private boolean isPublic;
@@ -29,13 +28,12 @@ public class Activity extends PanacheEntityBase {
     public Activity() {
     }
 
-    public Activity(String activityName, LocalDateTime startDateTime, double longitude, double latitude, Activity previousActivity, Topic belongsTo, String comment, boolean isPublic, LocalDate publicationDate) {
+    public Activity(String activityName, LocalDateTime startDateTime, double longitude, double latitude, Activity previousActivity, String comment, boolean isPublic, LocalDate publicationDate) {
         this.activityName = activityName;
         this.startDateTime = startDateTime;
         this.longitude = longitude;
         this.latitude = latitude;
         this.previousActivity = previousActivity;
-        this.belongsTo = belongsTo;
         this.comment = comment;
         this.isPublic = isPublic;
         this.publicationDate = publicationDate;
@@ -81,13 +79,6 @@ public class Activity extends PanacheEntityBase {
         this.previousActivity = previousActivity;
     }
 
-    public Topic getBelongsTo() {
-        return belongsTo;
-    }
-
-    public void setBelongsTo(Topic belongsTo) {
-        this.belongsTo = belongsTo;
-    }
 
     public String getComment() {
         return comment;
@@ -131,7 +122,6 @@ public class Activity extends PanacheEntityBase {
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", previousActivity=" + previousActivity +
-                ", belongsTo=" + belongsTo +
                 ", comment='" + comment + '\'' +
                 ", isPublic=" + isPublic +
                 ", publicationDate=" + publicationDate +

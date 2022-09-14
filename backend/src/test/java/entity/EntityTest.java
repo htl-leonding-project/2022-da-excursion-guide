@@ -62,17 +62,6 @@ class EntityTest {
     }
 
     @Test
-    public void entityEventType(){
-        EventType eventType = new EventType();
-        eventType.setType("test");
-        eventType.setMaxPersonAllowed(100);
-
-        assertThat(eventType).isNotNull();
-        assertThat(eventType.getType()).isEqualTo("test");
-        assertThat(eventType.getMaxPersonAllowed()).isEqualTo(100);
-    }
-
-    @Test
     public void entityEvent(){
         Event event = new Event();
         event.setName("test");

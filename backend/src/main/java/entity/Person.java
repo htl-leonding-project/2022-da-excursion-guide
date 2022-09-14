@@ -13,8 +13,6 @@ public class Person extends PanacheEntityBase {
 
     private String firstname;
     private String lastname;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Event event;
     private Role role;
     private String telephone;
     private String comment;
@@ -22,10 +20,9 @@ public class Person extends PanacheEntityBase {
     public Person() {
     }
 
-    public Person(String firstname, String lastname, Event event, Role role, String telephone, String comment) {
+    public Person(String firstname, String lastname, Role role, String telephone, String comment) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.event = event;
         this.role = role;
         this.telephone = telephone;
         this.comment = comment;
@@ -55,13 +52,6 @@ public class Person extends PanacheEntityBase {
         this.lastname = lastname;
     }
 
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
 
     public Role getRole() {
         return role;

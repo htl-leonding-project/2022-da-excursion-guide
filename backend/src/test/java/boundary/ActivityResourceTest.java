@@ -1,7 +1,6 @@
 package boundary;
 
 import entity.Activity;
-import entity.Topic;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +33,6 @@ class ActivityResourceTest {
         activity.setLatitude(0.001);
         activity.setComment("comment");
         activity.setStartDateTime(start);
-        activity.setBelongsTo(new Topic());
         activity.persistAndFlush();
         activityId = activity.getId();
     }

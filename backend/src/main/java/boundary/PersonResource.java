@@ -51,7 +51,6 @@ public class PersonResource {
         tmp.setFirstname(person.getFirstname());
         tmp.setLastname(person.getLastname());
         tmp.setRole(person.getRole());
-        tmp.setEvent(person.getEvent());
         tmp.setTelephone(person.getTelephone());
         tmp.persistAndFlush();
         return Response.ok(person).build();

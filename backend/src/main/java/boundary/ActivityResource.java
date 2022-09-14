@@ -49,7 +49,6 @@ public class ActivityResource {
         tmp.setComment(activity.getComment());
         tmp.setLatitude(activity.getLatitude());
         tmp.setLongitude(activity.getLongitude());
-        tmp.setBelongsTo(activity.getBelongsTo());
         tmp.setPreviousActivity(activity.getPreviousActivity());
         tmp.setPublic(activity.isPublic());
         tmp.setPublicationDate(activity.getPublicationDate());

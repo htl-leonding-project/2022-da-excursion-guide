@@ -47,9 +47,9 @@ public class TopicResource {
     public Response edit(@RestPath long id, Topic topic) {
         Topic tmp = Topic.findById(id);
         tmp.setComment(topic.getComment());
-        tmp.setEvent(topic.getEvent());
         tmp.setName(topic.getName());
         tmp.setPreviousTopic(topic.getPreviousTopic());
+        tmp.setActivity(topic.getActivity());
         tmp.persistAndFlush();
         return Response.ok(topic).build();
     }

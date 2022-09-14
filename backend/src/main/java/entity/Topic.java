@@ -3,6 +3,7 @@ package entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Topic extends PanacheEntityBase {
@@ -10,18 +11,20 @@ public class Topic extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.DETACH})
-    private Event event;
-    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.DETACH})
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Activity> activity;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Topic previousTopic;
     private String comment;
 
     public Topic() {
     }
 
-    public Topic(String name, Event event, Topic previousTopic, String comment) {
+    public Topic(String name, List<Activity> activity, Topic previousTopic, String comment) {
         this.name = name;
-        this.event = event;
+        this.activity = activity;
         this.previousTopic = previousTopic;
         this.comment = comment;
     }
@@ -42,14 +45,6 @@ public class Topic extends PanacheEntityBase {
         this.name = name;
     }
 
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
     public Topic getPreviousTopic() {
         return previousTopic;
     }
@@ -64,5 +59,13 @@ public class Topic extends PanacheEntityBase {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public List<Activity> getActivity() {
+        return activity;
+    }
+
+    public void setActivity(List<Activity> activity) {
+        this.activity = activity;
     }
 }

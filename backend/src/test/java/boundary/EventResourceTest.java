@@ -1,7 +1,6 @@
 package boundary;
 
 import entity.Event;
-import entity.EventType;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +26,6 @@ class EventResourceTest {
         Event.deleteAll();
         Event event = new Event();
         event.setName("event");
-        event.setEventType(new EventType());
         event.setPlanedStartDateTime(start);
         event.setPlanedEndDateTime(end);
         event.persistAndFlush();
