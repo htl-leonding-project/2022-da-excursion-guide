@@ -17,6 +17,9 @@ public class Person extends PanacheEntityBase {
     private String telephone;
     private String comment;
 
+    @ManyToOne
+    private Event event;
+
     public Person() {
     }
 

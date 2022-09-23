@@ -9,16 +9,17 @@ import java.util.List;
 @Entity
 public class Event extends PanacheEntityBase {
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private int maxPersonAllowed;
     private String type;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Person> participant;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
     private List<Topic> topics;
 
     private LocalDateTime planedStartDateTime;

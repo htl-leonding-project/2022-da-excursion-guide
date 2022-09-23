@@ -12,11 +12,14 @@ public class Topic extends PanacheEntityBase {
     private long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
     private List<Activity> activity;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Topic previousTopic;
+
+    @ManyToOne
+    private Event event;
     private String comment;
 
     public Topic() {

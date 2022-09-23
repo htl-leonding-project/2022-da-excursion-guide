@@ -25,6 +25,9 @@ public class Activity extends PanacheEntityBase {
 
     private LocalDate publicationDate;
 
+    @ManyToOne
+    private Topic topic;
+
     public Activity() {
     }
 
