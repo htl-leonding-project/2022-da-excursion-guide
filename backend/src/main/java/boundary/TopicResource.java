@@ -1,5 +1,6 @@
 package boundary;
 
+import control.TopicRepository;
 import entity.Activity;
 import entity.Event;
 import entity.Person;
@@ -20,6 +21,8 @@ import java.util.List;
 public class TopicResource {
     @Inject
     EntityManager em;
+    @Inject
+    TopicRepository topicRepository;
 
     @GET
     @Path("getAll")
@@ -64,17 +67,15 @@ public class TopicResource {
 
     @POST
     @Transactional
-    @Path("addAktivity/{topicname}")
+    @Path("addActivity/{topicname}")
     public Response addPersonToEvent(Activity activity, @RestPath String topicname) {
-        Topic topic = em
-                .createQuery("SELECT t from Topic t where t.name LIKE :NAME", Topic.class)
-                .setParameter("NAME", topicname)
-                .getSingleResult();
+        Topic topic = topicRepository.getTopic(topicname);
         List<Activity> activities = topic.getActivity();
         activities.add(activity);
         topic.setActivity(activities);
-        topic.persistAndFlush();
+        Topic.deleteById(topic.getId());
+        Topic.persist(topic);
+        activity.setTopic(topic);
         return Response.ok(topic).build();
     }
-
 }
