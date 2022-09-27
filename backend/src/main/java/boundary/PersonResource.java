@@ -1,5 +1,6 @@
 package boundary;
 
+import entity.Event;
 import entity.Person;
 import org.jboss.resteasy.reactive.RestPath;
 
@@ -9,8 +10,11 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("api/person")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class PersonResource {
 
     @Inject
@@ -71,6 +75,4 @@ public class PersonResource {
                         .getResultList()
                 ).build();
     }
-
-
 }
