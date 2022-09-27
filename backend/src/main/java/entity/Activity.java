@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -25,7 +26,8 @@ public class Activity extends PanacheEntityBase {
 
     private LocalDate publicationDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Topic topic;
 
     public Activity() {
@@ -115,6 +117,13 @@ public class Activity extends PanacheEntityBase {
         this.publicationDate = publicationDate;
     }
 
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
 
     @Override
     public String toString() {

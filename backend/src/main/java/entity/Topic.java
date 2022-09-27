@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -12,13 +14,15 @@ public class Topic extends PanacheEntityBase {
     private long id;
     private String name;
 
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Activity> activity;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Topic previousTopic;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Event event;
     private String comment;
 
@@ -70,5 +74,13 @@ public class Topic extends PanacheEntityBase {
 
     public void setActivity(List<Activity> activity) {
         this.activity = activity;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }

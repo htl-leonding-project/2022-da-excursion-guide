@@ -1,6 +1,7 @@
 package entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -17,7 +18,8 @@ public class Person extends PanacheEntityBase {
     private String telephone;
     private String comment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Event event;
 
     public Person() {
@@ -78,5 +80,13 @@ public class Person extends PanacheEntityBase {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 }

@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -17,9 +18,11 @@ public class Event extends PanacheEntityBase {
     private String type;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Person> participant;
 
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Topic> topics;
 
     private LocalDateTime planedStartDateTime;
