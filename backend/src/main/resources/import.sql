@@ -16,7 +16,7 @@ values ('No comment','Firstname','Lastname',2,'0123456789',1);
 insert into topic (comment, name, event_id)
 values ('NO comment', 'Test Name', 1);
 insert into topic (comment, name, event_id, previoustopic_id)
-values ('NO comment', 'Test Name', 1, 1);
+values ('NO comment', 'Test Topic', 1, 1);
 
 
 -- Insert Test Activity
