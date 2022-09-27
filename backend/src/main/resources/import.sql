@@ -4,7 +4,7 @@ values (100,'Test Event','2022-11-11 13:23:44','2022-11-01 13:23:44','Test Type'
 
 -- Insert Test Person
 insert into person (comment, firstname, lastname, role, telephone,event_id)
-values ('No comment','Oliver','Sugic','0123456789',1);
+values ('No comment','Oliver','Sugic',1,'0123456789',1);
 insert into person (comment, firstname, lastname, role, telephone,event_id)
 values ('No comment','Test ','Person',1,'0123456789',1);
 insert into person (comment, firstname, lastname, role, telephone,event_id)
