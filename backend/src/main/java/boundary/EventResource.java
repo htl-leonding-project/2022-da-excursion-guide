@@ -4,6 +4,7 @@ package boundary;
 import control.EventRepository;
 import entity.Event;
 import entity.Person;
+import entity.Topic;
 import org.jboss.resteasy.reactive.RestPath;
 
 import javax.inject.Inject;
@@ -65,7 +66,7 @@ public class EventResource {
         tmp.setTopics(event.getTopics());
         return Response.ok(event).build();
     }
-/*
+
     @POST
     @Transactional
     @Path("addPerson/{eventname}")
@@ -74,9 +75,23 @@ public class EventResource {
         List<Person> personList = event.getParticipant();
         personList.add(person);
         event.setParticipant(personList);
-        em.merge(event);
+        Event.deleteById(event.getId());
+        Event.persist(event);
+        person.setEvent(event);
         return Response.ok(event).build();
     }
 
- */
+    @POST
+    @Transactional
+    @Path("addTopic/{eventname}")
+    public Response addTopicToEvent(Topic topic, @RestPath String eventname) {
+        Event event = eventRepository.getEvent(eventname);
+        List<Topic> topics = event.getTopics();
+        topics.add(topic);
+        event.setTopics(topics);
+        Event.deleteById(event.getId());
+        Event.persist(event);
+        topic.setEvent(event);
+        return Response.ok(event).build();
+    }
 }
