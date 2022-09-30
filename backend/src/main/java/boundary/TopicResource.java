@@ -5,7 +5,6 @@ import entity.Activity;
 import entity.Event;
 import entity.Person;
 import entity.Topic;
-import org.jboss.resteasy.reactive.RestPath;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -33,7 +32,7 @@ public class TopicResource {
 
     @GET
     @Path("{id}")
-    public Response getById(long id) {
+    public Response getById(@PathParam("id") long id) {
         return Response.ok(Topic.findById(id)).build();
     }
 
@@ -48,14 +47,14 @@ public class TopicResource {
     @DELETE
     @Transactional
     @Path("deleteTopic/{id}")
-    public void delete(@RestPath long id) {
+    public void delete(@PathParam("id") long id) {
         Topic.findById(id).delete();
     }
 
     @PATCH
     @Transactional
     @Path("editTopic/{id}")
-    public Response edit(@RestPath long id, Topic topic) {
+    public Response edit(@PathParam("id") long id, Topic topic) {
         Topic tmp = Topic.findById(id);
         tmp.setComment(topic.getComment());
         tmp.setName(topic.getName());
@@ -68,7 +67,7 @@ public class TopicResource {
     @POST
     @Transactional
     @Path("addActivity/{topicname}")
-    public Response addPersonToEvent(Activity activity, @RestPath String topicname) {
+    public Response addPersonToEvent(Activity activity, @PathParam("topicname")  String topicname) {
         Topic topic = topicRepository.getTopic(topicname);
         List<Activity> activities = topic.getActivity();
         activities.add(activity);

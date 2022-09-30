@@ -21,7 +21,7 @@ public class Topic extends PanacheEntityBase {
     @OneToOne(cascade = CascadeType.ALL)
     private Topic previousTopic;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonBackReference
     private Event event;
     private String comment;

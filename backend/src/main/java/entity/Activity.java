@@ -26,7 +26,7 @@ public class Activity extends PanacheEntityBase {
 
     private LocalDate publicationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonBackReference
     private Topic topic;
 

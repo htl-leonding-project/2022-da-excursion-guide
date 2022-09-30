@@ -2,7 +2,6 @@ package boundary;
 
 import entity.Event;
 import entity.Person;
-import org.jboss.resteasy.reactive.RestPath;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -30,7 +29,7 @@ public class PersonResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getById(long id) {
+    public Response getById(@PathParam("id")long id) {
         return Response.ok(Person.findById(id)).build();
     }
 
@@ -47,14 +46,14 @@ public class PersonResource {
     @DELETE
     @Transactional
     @Path("deletePerson/{id}")
-    public void delete(@RestPath long id) {
+    public void delete(@PathParam("id") long id) {
         Person.findById(id).delete();
     }
 
     @PATCH
     @Transactional
     @Path("editPerson/{id}")
-    public Response edit(@RestPath long id, Person person) {
+    public Response edit(@PathParam("id") long id, Person person) {
         Person tmp = Person.findById(id);
         tmp.setComment(person.getComment());
         tmp.setFirstname(person.getFirstname());
@@ -68,7 +67,7 @@ public class PersonResource {
     @GET
     @Path("/getByName/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getByName(@RestPath String name) {
+    public Response getByName(@PathParam("name") String name) {
         return Response.
                 ok(em.createQuery("SELECT p from Person p WHERE p.lastname Like :NAME")
                         .setParameter("NAME", name)

@@ -49,6 +49,7 @@ class ActivityResourceTest {
     @Test
     void getActivityById() {
         given()
+                .contentType(ContentType.JSON)
                 .when().get("/api/activity/" + activityId)
                 .then()
                 .statusCode(200)

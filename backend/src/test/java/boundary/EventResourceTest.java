@@ -1,6 +1,9 @@
 package boundary;
 
+import entity.Activity;
 import entity.Event;
+import entity.Person;
+import entity.Topic;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +26,9 @@ class EventResourceTest {
     @BeforeEach
     @Transactional
     public void setup() {
+        Topic.deleteAll();
+        Activity.deleteAll();
+        Person.deleteAll();
         Event.deleteAll();
         Event event = new Event();
         event.setName("event");
@@ -45,6 +51,7 @@ class EventResourceTest {
     @Test
     void getEventById() {
         given()
+                .contentType(ContentType.JSON)
                 .when().get("/api/event/" + eventId)
                 .then()
                 .statusCode(200)
@@ -94,6 +101,7 @@ class EventResourceTest {
                 .body("name", is("Editevent"));
 
         given()
+                .contentType(ContentType.JSON)
                 .when().get("/api/event/" + eventId)
                 .then()
                 .statusCode(200)

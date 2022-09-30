@@ -5,7 +5,6 @@ import control.EventRepository;
 import entity.Event;
 import entity.Person;
 import entity.Topic;
-import org.jboss.resteasy.reactive.RestPath;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -33,7 +32,7 @@ public class EventResource {
 
     @GET
     @Path("{id}")
-    public Response getById(long id) {
+    public Response getById(@PathParam("id")long id) {
         return Response.ok(Event.findById(id)).build();
     }
 
@@ -48,14 +47,14 @@ public class EventResource {
     @DELETE
     @Transactional
     @Path("deleteEvent/{id}")
-    public void delete(@RestPath long id) {
+    public void delete(@PathParam("id") long id) {
         Event.findById(id).delete();
     }
 
     @PATCH
     @Transactional
     @Path("editEvent/{id}")
-    public Response edit(@RestPath long id, Event event) {
+    public Response edit(@PathParam("id") long id, Event event) {
         Event tmp = Event.findById(id);
         tmp.setName(event.getName());
         tmp.setMaxPersonAllowed(event.getMaxPersonAllowed());
@@ -70,7 +69,7 @@ public class EventResource {
     @POST
     @Transactional
     @Path("addPerson/{eventname}")
-    public Response addPersonToEvent(Person person, @RestPath String eventname) {
+    public Response addPersonToEvent(Person person, @PathParam("eventname") String eventname) {
         Event event = eventRepository.getEvent(eventname);
         List<Person> personList = event.getParticipant();
         personList.add(person);
@@ -84,7 +83,7 @@ public class EventResource {
     @POST
     @Transactional
     @Path("addTopic/{eventname}")
-    public Response addTopicToEvent(Topic topic, @RestPath String eventname) {
+    public Response addTopicToEvent(Topic topic, @PathParam("eventname") String eventname) {
         Event event = eventRepository.getEvent(eventname);
         List<Topic> topics = event.getTopics();
         topics.add(topic);

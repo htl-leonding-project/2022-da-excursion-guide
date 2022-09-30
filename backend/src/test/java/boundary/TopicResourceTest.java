@@ -1,5 +1,6 @@
 package boundary;
 
+import entity.Activity;
 import entity.Topic;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
@@ -20,6 +21,7 @@ class TopicResourceTest {
     @BeforeEach
     @Transactional
     public void setup() {
+        Activity.deleteAll();
         Topic.deleteAll();
         Topic topic = new Topic();
         topic.setName("topic");
