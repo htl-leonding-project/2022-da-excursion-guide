@@ -38,3 +38,6 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+gh-pages/
+/.env
