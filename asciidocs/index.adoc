@@ -1,76 +1,28 @@
-= Konzept Excursion Guide / Schnitzeljagd
+= LeoTour
+OLiver Sugic Marcel Plakolb
+1.0.0, 2022-09-30: Some notes
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
 
-== Mögliche Namen
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
 
-* excursion-guide
-* tour-assistant
-* LeoTour
+// print the toc here (not at the default position)
+//toc::[]
 
-* Schnitzeljagd ... paper chase
+== Erste Gedanken
 
+* <<leotour-old.adoc#,First Thoughts>>
 
+== Diplomarbeitsantrag
 
-== Ausgangssituation
+* <<LeoTour.adoc#,First Thoughts>>
 
-
-Bei Reisen in Gruppen zB bei schulbezogenen Reiseveranstaltungen ist es wichtig, die Teilnehmer über Treffpunkte, Zustiegspunkte und ev. auch über Sehenswürdigkeiten zu informieren.
-
-
-* Beispiel:
-** Man besucht Mailand, Florenz und Pisa.
-** Diese Stationen sind den Teilnehmern bekannt.
-** Die Detailinformationen zB GeoKoordinaten werden erst bekannt gegeben, wenn man Sie braucht. Somit gibt es keine Verwechslungen und die Personen kommen nur zu den vereinbarten Punkten
-
-* Es wird ev. eine Schnitzeljagd durchgeführt
-
-== Problemstellung
-
-* Die Weitergabe erfolgt oft ueber soziale Medien
-** Diese Weitergabe erfolg unkontrolliert, nicht mehr gebrauchte Informationen sind weiter verfügbar und tragen ev. zur Verwirrung der Teilnehmer bei.
+== Minutes of Meeting
 
 
-== Aufgabenstellung
-
-=== Reiseleiter-App
-
-* Eine Route kann geplant werden.
-* Zu jedem Punkt der Route koennen jederzeit (Detail-)Informationen hinzugefuegt werden.
-* Diese Detailinformationen werden ueber openstreetmap (osm) lokalisiert; es koennen Zusatzinformationen eingefuegt werden.
-* Es gibt eine einen Creator- und einen User-Mode
-** Routen werden im Creator-Modus erstellt
-** Die Informationen koennen im User-Mode abgerufen werden.
-
-* Werden die Infos vom User abgerufen, werden die Punkte in Google Maps oder osm angezeigt und es kann direkt dorthin geroutet werden
-* Zum Abrufen der Informationen gibt es entweder eine Zeitsteuerung (eher nicht) oder der Reiseleiter / Creator kann die Information auf seiner App freigeben.
-
-
-* Diese detaillierten Informationen sollen (GeoKoordinaten) erst sichtbar sein, wenn man sie braucht.
-
-** Hierbei kann man entscheiden, welche Informationen sofort verfügbar sind (grobe Reiseübersicht) und welche Informationen erst zu einem gewissen Zeitpunkt freigegeben werden (Zeit und Koordinaten von zB Zustiegspunkten).
-** Auch ist es wichtig, auf geänderte Situationen reagieren zu können, dh wenn man in der Stadt ankommt und feststellen muss, dass aufgrund einer Baustelle, einer Veranstaltung, usw. die geplanten Treffpunkte nicht möglich sind, dass diese einfach geändert werden können (zB automatische Erfassung des derzeitign Standortes)
-** auch eine Weckerfunktion wäre möglich, dh die Teilnehmer werden benachrchtigt, wenn der Zeitpunkt des Treffpunktes naht.
-
-* Entscheidung MobileApp oder WebApp
-** Ev. Creator-Mode in einer mobile App
-** User-Mode in einer Web-App
-*** Der Link zur User-Website ist per QR-Code verfuegbar
-
-
-=== Schnitzeljagd-App
-
-* Ev. knn auch in einer Stadt / einem Bereich eine Schnitzeljagd durchgefuehrt werden.
-
-* https://www.mycityhunt.de/schnitzeljagd-in-der-stadt[Schnitzeljagd in der Stadt]
-
-
-== Implementierung
-
-* Angular
-* Quarkus
-* (Android Jetpack Compose)
-* Kotlin Multiplatform
-** https://www.jetbrains.com/de-de/lp/compose-mpp/
-** https://kotlinlang.org/lp/mobile/
-** https://medium.com/47billion/kotlin-multiplatform-mobile-780e6978461
-
-
+* <<minutes-of-meeting-2022-09-30.adoc#,Minutes of Meeting 2022-09-30>>
