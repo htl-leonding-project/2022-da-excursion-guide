@@ -27,3 +27,4 @@ values ('testactivity1','no comment',false,48.2685952973631, 14.25187750534175,c
 
 
 
+
