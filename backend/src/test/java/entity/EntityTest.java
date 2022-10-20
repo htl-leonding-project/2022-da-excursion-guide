@@ -64,12 +64,12 @@ class EntityTest {
     @Test
     public void entityEvent(){
         Event event = new Event();
-        event.setName("test");
+        event.setLocation("test");
         event.setPlanedStartDateTime(timeNow);
         event.setPlanedEndDateTime(timeNow.plusSeconds(1));
 
         assertThat(event).isNotNull();
-        assertThat(event.getName()).isEqualTo("test");
+        assertThat(event.getLocation()).isEqualTo("test");
         assertThat(event.getPlanedStartDateTime()).isEqualTo(timeNow);
         assertThat(event.getPlanedEndDateTime()).isEqualTo(timeNow.plusSeconds(1));
     }

@@ -31,7 +31,7 @@ class EventResourceTest {
         Person.deleteAll();
         Event.deleteAll();
         Event event = new Event();
-        event.setName("event");
+        event.setLocation("event");
         event.setPlanedStartDateTime(start);
         event.setPlanedEndDateTime(end);
         event.persistAndFlush();
@@ -55,24 +55,24 @@ class EventResourceTest {
                 .when().get("/api/event/" + eventId)
                 .then()
                 .statusCode(200)
-                .body("name ", is("event"));
+                .body("location ", is("event"));
     }
 
     @Test
     void addEvent() {
         given()
-                .body(Map.of("name", "event"))
+                .body(Map.of("location", "event"))
                 .contentType(ContentType.JSON)
                 .when().post("/api/event/addEvent")
                 .then()
                 .statusCode(200)
-                .body("name", is("event"));
+                .body("location", is("event"));
 
         given()
                 .when().get("/api/event/getAll")
                 .then()
                 .statusCode(200)
-                .body("[1].name", is("event")); // second of array because one is always persisted
+                .body("[1].location", is("event")); // second of array because one is always persisted
 
     }
 
@@ -93,18 +93,18 @@ class EventResourceTest {
     @Test
     void editEvent() {
         given()
-                .body(Map.of("name", "Editevent"))
+                .body(Map.of("location", "Editevent"))
                 .contentType(ContentType.JSON)
                 .when().patch("/api/event/editEvent/" + eventId)
                 .then()
                 .statusCode(200)
-                .body("name", is("Editevent"));
+                .body("location", is("Editevent"));
 
         given()
                 .contentType(ContentType.JSON)
                 .when().get("/api/event/" + eventId)
                 .then()
                 .statusCode(200)
-                .body("name", is("Editevent"));
+                .body("location", is("Editevent"));
     }
 }

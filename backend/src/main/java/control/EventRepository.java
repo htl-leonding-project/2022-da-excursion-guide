@@ -15,7 +15,7 @@ public class EventRepository implements PanacheRepository<Event> {
     EntityManager em;
     public Event getEvent(String eventname){
         return em
-                .createQuery("SELECT e from Event e where e.name LIKE :NAME",Event.class)
+                .createQuery("SELECT e from Event e where e.location LIKE :NAME",Event.class)
                 .setParameter("NAME",eventname)
                 .getSingleResult();
     }

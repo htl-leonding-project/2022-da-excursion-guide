@@ -13,7 +13,7 @@ public class Event extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
+    private String location;
     private int maxPersonAllowed;
     private String type;
 
@@ -28,12 +28,11 @@ public class Event extends PanacheEntityBase {
     private LocalDateTime planedStartDateTime;
     private LocalDateTime planedEndDateTime;
 
-
     public Event() {
     }
 
-    public Event(String name, int maxPersonAllowed, String type, List<Person> participant, List<Topic> topics, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime) {
-        this.name = name;
+    public Event(String location, int maxPersonAllowed, String type, List<Person> participant, List<Topic> topics, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime) {
+        this.location = location;
         this.maxPersonAllowed = maxPersonAllowed;
         this.type = type;
         this.participant = participant;
@@ -50,12 +49,12 @@ public class Event extends PanacheEntityBase {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLocation() {
+        return location;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLocation(String name) {
+        this.location = name;
     }
 
     public LocalDateTime getPlanedStartDateTime() {

@@ -56,7 +56,7 @@ public class EventResource {
     @Path("editEvent/{id}")
     public Response edit(@PathParam("id") long id, Event event) {
         Event tmp = Event.findById(id);
-        tmp.setName(event.getName());
+        tmp.setLocation(event.getLocation());
         tmp.setMaxPersonAllowed(event.getMaxPersonAllowed());
         tmp.setType(event.getType());
         tmp.setPlanedEndDateTime(event.getPlanedEndDateTime());
