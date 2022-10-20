@@ -1,0 +1,45 @@
+= Besprechungsprotokoll 30.09.2022
+Oliver Sugic
+1.0, 2022-09-30: Besprechungsprotokoll
+ifndef::imagesdir[:imagesdir: images]
+:icons: font
+//:sectnums:    // Nummerierung der Überschriften / section numbering
+//:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// https://fontawesome.com/v4.7.0/icons/
+endif::backend-html5[]
+
+
+.Teilnehmer
+|===
+|anwesend
+
+| Oliver Sugic
+
+| Prof. Thomas Stütz
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Htl-Leonding
+
+|von-bis
+|Fr. 09.05.2022 12:40-
+|Dauer
+|20 min
+|===
+
+== Besprochene Themen
+
+* Routing ist in der Webapplikation nicht notwendig
+** Die Zielkoordinaten (oder Adresse) werden an Google Maps übergeben
+** Das Routing erfolgt innerhalb Google Maps
+** TODO: Wie ruft man aus Angular die Google Maps auf mit Übergabe der Koordinaten auf
+* Test Daten ändern
+** Entsprechend von realen Daten (z.B. Kroatienwoche)
+
