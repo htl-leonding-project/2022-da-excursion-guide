@@ -1,0 +1,97 @@
+# LeoTour
+
+## Schule
+Höhere technische Bundeslehranstalt LEONDING
+
+## Abteilung(en)
+Hauptverantwortlich: Höhere Abteilung für Informatik
+
+## AV
+Hauptverantwortlich: Peter Bauer_AV
+
+## Abschließende Prüfung
+2022
+
+## Betreuer/innen
+Hauptverantwortlich: Thomas Stütz
+
+## Ausgangslage
+
+In der HTL Leonding werden mehrtägige Ausflüge unternommen, viele davon auch im Ausland oder nach Orten, wo sich viele der Reisenden nicht auskennen Bei Reisen in Gruppen ist es wichtig, die Teilnehmer über Treffpunkte, Zustiegspunkte und ev. auch über Sehenswürdigkeiten zu informieren.
+
+An Schulen werden mehrtägige Schul-VA unternommen. Bei Reisen in Gruppen sind die Tn über Treffpunkte, Zustiegspunkte oder auch Sehenswürdigkeiten zu informieren. Eine vollst. Reisedokum. (Papierform oder elektronisch) kann zu Verwirrung führen, wenn man in den umfangreichen Unterlagen die notwendigen Informationen nicht zeitgerecht findet oder insb. wenn kurzfristig Infos geändert werden müssen.
+
+Es wäre wünschenswert, ein System zu haben, dass für verschiedenste Veanstaltungen nur die notwendigen Informationen aktuell zur Verfügung stellt.
+
+## Untersuchungsanliegen der individuellen Themenstellungen (Diplomarbeit/Abschlussarbeit-Teilthemen)
+
+Es wird untersucht, wie den Teilnehmern einer Veranstaltung aktuelle Informationen zum richtigen Zeitpunkt auf mobilen Endgeräten zur Verfügung gestellt werden können. Dabei wird zwischen verschiedenen Teilnehmergruppen unterschieden. Änderungen von Treff- und Zustiegspunkten können sofort von berechtigten Personen durchgeführt werden (zB bei gesperrten Straßen durch Baustellen, andere Veranstaltungen usw.)
+
+Oliver Sugic:
+- Persistierung in einer relat. Datenbank
+- Erstellen einer Schnittstelle zum UI (restful, ev. graphQL)
+- CI/CD-Pipeline mittels gh-actions
+- Tests
+
+Marcel Plakolb:
+- Konzipieren der UI
+- Erstellen eines Web-Clients in Angular
+  - Teilnehmer
+  - VA-Organisatoren
+- Konfiguration des Production-Servers
+  - Reverse Proxy mit Traefik
+  - Authentifizierung mit Keycloak
+-Tests
+
+
+### Grundlegende Funktionen (Oliver Sugic):
+
+* Anlegen der Ziele
+* Aufrufen der Ziele
+* Schnittstellen zum Server bereitstellen
+
+### Grafische Visulisierung (Plakolb)
+
+* Grafische Oberfläche für den Ersteller der Ziele
+* Grafische Oberfläche für den Reisenden
+
+## Zielsetzung
+
+Durch einen reibungslosen Ablaufs der Veranstaltung (keine teilnehmenden Schüler gehen in einer fremden Stadt verloren) wird die Sicherheit der Teilnehmer erhöht.
+
+Um den Reisenden die Reise zu vereinfachen, soll die App die Koordinaten der jeweiligen Ziele angezeigen.
+Somit können bei Ausflügen von z.B Städte oder sonstigen Sehenswürdigkeiten Probleme wie z.B das Verlieren von Personen oder das Antreffen bei einem falschen Ziel verhindert werden. Den benutzenden Personen soll der Ausflug erleichtert werden, sodass man ihn ohne Probleme genießen kann
+
+## Geplantes Ergebnis der individuellen Themenstellungen
+
+Die Applikation weist folgende Funktionalität auf:
+
+- CRUD einer Veranstaltung (Reise)
+- CRUD der Hauptpunkte (Destinationen)
+- CRUD der Aktivitäten (Treff- und Zustiegspunkte)
+- UI für Organisatoren
+  - Manuelles oder zeitgesteuertes Freischalten von Aktivitäten
+- UI für Teilnehmer
+  - Bekanntgabe der eigenen Position
+
+Sugic:
+- Funktionalität im Backend
+
+Plakolb:
+- Funktionalität im Frontend
+
+
+
+* Quarkus Backendservice für das Verwalten der Reisen
+
+Plakolb:
+
+* Grafische Visulisierung der Mobile - und Web-app
+
+
+## Meilensteine
+
+* Datenmodell fertigstellen
+* Backend fertigstellen
+* Mobile-App fertigstellen
+* Web-App fertigstellen
