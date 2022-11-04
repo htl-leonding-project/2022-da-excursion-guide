@@ -1,13 +1,1 @@
-<div class="container mt-5 col-12" *ngFor="let item of list">
-  <h1>{{item.type}} {{item.location}}</h1>
-  <div class="col-6" *ngFor="let topic of item.topics">
-    <h2>{{topic.name}}</h2>
-    <p>{{topic.comment}}</p>
-    <div *ngFor="let activity of topic.activity">
-      <div *ngIf="activity.public">
-        <h3>{{activity.activityName}}</h3>
-        <p>{{activity.comment}}</p>
-      </div>
-    </div>
-  </div>
-</div>
+<p>tour-view works!</p>
