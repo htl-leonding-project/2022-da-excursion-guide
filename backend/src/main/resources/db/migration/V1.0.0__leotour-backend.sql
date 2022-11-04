@@ -111,7 +111,7 @@ values ( 'Palazzo Reale'
 
 insert into topic (comment, name, event_id, previoustopic_id)
 values ('Die einzigartige Lagunenstadt an der italienischen Adria zählt zu den weltweit bedeutendsten Zielen für Städtereisen. Neben prächtigen Kirchen und einzigartigen Museen und Palästen sind es vor allem die Kanäle mit ihren Gondeln, die der Stadt diesen unvergesslichen Charme geben. Venedigs Architektur ist einzigartig und der richtige Ort um sich einfach treiben zu lassen. Die Stadt ist ein riesiges Freilichtmuseum mit unzähligen Kunst und Kulturschätzen und bietet darüber hinaus auch noch eine Menge kulinarischer Köstlichkeiten.',
-        'Venedig', 1, 3);
+        'Venedig', 1, 2);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Canal Grande '
@@ -125,7 +125,7 @@ values ( 'Scuola Grande di San Rocco'
 
 
 insert into topic (comment, name, event_id, previoustopic_id)
-values (' Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stadt auf einem schmalen Küstendstreifen über 30 km an der italienischen Riviera entlang. Es ist eng in der Stadt, weiträumige Plätze sind selten im Zentrum, verwinkelte Gässchen gibt es dagegen überall. Die Wohnhäuser sind in der Regel 7-8 Stockwerke hoch und selbst die Prachtstraße Genuas, die Via Garibaldi ist gerade mal 7,5 m breit und die da zu bewundernden herrlichen Renaissancepaläste leiden etwas unter dieser Enge.',
+values ('Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stadt auf einem schmalen Küstendstreifen über 30 km an der italienischen Riviera entlang. Es ist eng in der Stadt, weiträumige Plätze sind selten im Zentrum, verwinkelte Gässchen gibt es dagegen überall. Die Wohnhäuser sind in der Regel 7-8 Stockwerke hoch und selbst die Prachtstraße Genuas, die Via Garibaldi ist gerade mal 7,5 m breit und die da zu bewundernden herrlichen Renaissancepaläste leiden etwas unter dieser Enge.',
         'Genua', 1, 3);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)

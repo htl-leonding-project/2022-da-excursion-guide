@@ -26,3 +26,5 @@ ifdef::backend-html5[]
 
 
 * <<minutes-of-meeting-2022-09-30.adoc#,Minutes of Meeting 2022-09-30>>
+* <<minutes-of-meeting-2022-10-14.adoc#,Minutes of Meeting 2022-10-14>>
+* <<minutes-of-meeting-2022-10-23.adoc#,Minutes of Meeting 2022-10-23>>
