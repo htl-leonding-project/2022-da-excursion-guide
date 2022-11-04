@@ -7,6 +7,7 @@ import { TourViewComponent } from './components/tour-view/tour-view.component';
 import {TourCreationComponent} from "./components/tour-creation/tour-creation.component";
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import { TestComponent } from './test/test.component';
 
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TourCreationComponent,
-    TourViewComponent
+    TourViewComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
