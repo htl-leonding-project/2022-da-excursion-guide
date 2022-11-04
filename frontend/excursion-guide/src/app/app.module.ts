@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TourCreationComponent } from './component/tour-creation/tour-creation.component';
 import { TourViewComponent } from './components/tour-view/tour-view.component';
-import {TourCreationComponent} from "./components/tour-creation/tour-creation.component";
 
 @NgModule({
   declarations: [
