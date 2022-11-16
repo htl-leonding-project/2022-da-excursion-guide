@@ -4,7 +4,7 @@ import {Topic} from "./topic";
 export interface Event {
   id:                  number;
   maxPersonAllowed:    number;
-  location:                string;
+  location:            string;
   participant:         Person[];
   planedEndDateTime:   Date;
   planedStartDateTime: Date;

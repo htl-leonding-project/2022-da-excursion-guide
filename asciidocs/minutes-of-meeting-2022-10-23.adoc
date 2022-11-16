@@ -1,0 +1,50 @@
+= Besprechungsprotokoll 23.10.2022
+Oliver Sugic
+1.0, 2022-10-23: Besprechungsprotokoll
+ifndef::imagesdir[:imagesdir: images]
+:customcss: css/stylesheet.css
+:icons: font
+//:sectnums:    // Nummerierung der Überschriften / section numbering
+//:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// https://fontawesome.com/v4.7.0/icons/
+endif::backend-html5[]
+
+
+.Teilnehmer
+|===
+|anwesend
+
+| Oliver Sugic
+
+| Prof. Thomas Stütz
+|===
+
+.Ort und Zeit
+[cols=2*]
+|===
+|Ort
+|Discord
+
+|von-bis
+|Fr. 23.10.2022 09:30-10:40
+|Dauer
+|20 min
+|===
+
+== Besprochene Themen
+* Fronten
+** Adresse übergeben an google maps und dort dann mit google maps standort route erstellen
+** Wireframes erstellen für die verschiedenen Ansichten
+
+.Wireframe für die User Ansicht
+image::wire_frame-view_page.png[]
+
+.Wireframe Beispiel
+image::wireframe_example.png[role=text-center]
+
+* Glosar: Begriffe mit Bsp anführen
+* Karte wegen Platzprobleme entferne

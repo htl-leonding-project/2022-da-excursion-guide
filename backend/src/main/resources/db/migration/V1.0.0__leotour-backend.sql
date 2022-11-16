@@ -110,22 +110,8 @@ values ( 'Palazzo Reale'
        , false, 40.8362, 14.2496, current_date, '2023-05-12 14:00', 2);
 
 insert into topic (comment, name, event_id, previoustopic_id)
-values ('Turin gehört zu den unterschätzten Städten Italiens und ist gerade deshalb noch ein Geheimtipp. Die Hauptstadt des Piemont hat so viele schöne Sehenswürdigkeiten und eine wunderbare Umgebung, dass es sich lohnt, ein paar Tage in Turin zu verbringen und sich von der angenehmen Atmosphäre und den Köstlichkeiten verwöhnen zu lassen. ',
-        'Turin', 1, 2);
-
-insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
-values ( 'Venaria Reale '
-       , 'Auch die Venaria Reale war ein Königspalast des Hauses Savoyen und gehört heute zum UNESCO-Weltkulturerbe. Es ist eines der größten Königsschlösser und hat riesige Gartenanlagen. Wir empfehlen, einen ganzen Tag für diese außerordentliche Sehenswürdigkeit mit dem gesamten Dorf ringsherum einzuplanen.'
-       , false, 45.464098, 9.191926, current_date, '2023-05-12 11:00', 3);
-
-insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
-values ( 'Palazzo Reale'
-       , 'Der Königspalast Palazzo Reale war die Residenz der Königsfamilie Savoyen im Piemont. Er befindet in der attraktiven Piazza Castello und ist durch ein schmiedeeisernes Gitter vom Platz getrennt. Der Palazzo Reale wird heute für Ausstellungen genutzt. Dahinter befinden sich die königlichen Gärten.'
-       , false, 40.8362, 14.2496, current_date, '2023-05-12 14:00', 3);
-
-insert into topic (comment, name, event_id, previoustopic_id)
 values ('Die einzigartige Lagunenstadt an der italienischen Adria zählt zu den weltweit bedeutendsten Zielen für Städtereisen. Neben prächtigen Kirchen und einzigartigen Museen und Palästen sind es vor allem die Kanäle mit ihren Gondeln, die der Stadt diesen unvergesslichen Charme geben. Venedigs Architektur ist einzigartig und der richtige Ort um sich einfach treiben zu lassen. Die Stadt ist ein riesiges Freilichtmuseum mit unzähligen Kunst und Kulturschätzen und bietet darüber hinaus auch noch eine Menge kulinarischer Köstlichkeiten.',
-        'Venedig', 1, 3);
+        'Venedig', 1, 2);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Canal Grande '
@@ -139,7 +125,7 @@ values ( 'Scuola Grande di San Rocco'
 
 
 insert into topic (comment, name, event_id, previoustopic_id)
-values (' Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stadt auf einem schmalen Küstendstreifen über 30 km an der italienischen Riviera entlang. Es ist eng in der Stadt, weiträumige Plätze sind selten im Zentrum, verwinkelte Gässchen gibt es dagegen überall. Die Wohnhäuser sind in der Regel 7-8 Stockwerke hoch und selbst die Prachtstraße Genuas, die Via Garibaldi ist gerade mal 7,5 m breit und die da zu bewundernden herrlichen Renaissancepaläste leiden etwas unter dieser Enge.',
+values ('Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stadt auf einem schmalen Küstendstreifen über 30 km an der italienischen Riviera entlang. Es ist eng in der Stadt, weiträumige Plätze sind selten im Zentrum, verwinkelte Gässchen gibt es dagegen überall. Die Wohnhäuser sind in der Regel 7-8 Stockwerke hoch und selbst die Prachtstraße Genuas, die Via Garibaldi ist gerade mal 7,5 m breit und die da zu bewundernden herrlichen Renaissancepaläste leiden etwas unter dieser Enge.',
         'Genua', 1, 3);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
