@@ -1,1 +1,23 @@
-<p>unlock-activity works!</p>
+<div class="flex flex-row">
+  <div *ngFor="let event of list">
+    <h1 class="h1" style="text-align: center">{{event.type}} {{event.location}}</h1>
+    <div *ngFor="let topic of event.topics">
+      <h2 class="h2" style="float: left;width: 100%;text-align: center">{{topic.name}}</h2>
+      <div *ngFor="let activity of topic.activity">
+        <div *ngIf="activity.public" style="float: left">
+          <p style="margin-left: 5%;margin-right: 5%">{{activity.activityName}}</p>
+          <button class="btn btn-primary" style="margin-left: 5%;margin-right: 5%"
+                  (click)="changeVisibility(activity,topic)">
+            Aktivität sperren
+          </button>
+        </div>
+        <div *ngIf="!activity.public" style="float: right">
+          <p style="margin-left: 5%;margin-right: 5%;">{{activity.activityName}}</p>
+          <button class="btn btn-primary" style="margin-left: 5%;margin-right: 5%"
+                  (click)="changeVisibility(activity,topic)">Aktivität freischalten
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
