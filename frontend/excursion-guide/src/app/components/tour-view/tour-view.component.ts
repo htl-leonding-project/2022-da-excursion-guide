@@ -37,5 +37,4 @@ export class TourViewComponent implements OnInit {
   getLinkForGoogleMaps(activity: Activity) {
     return "https://www.google.com/maps/dir/?api=1&destination=" + activity.latitude + "," + activity.longitude;
   }
-
 }
