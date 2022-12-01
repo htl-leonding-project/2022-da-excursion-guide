@@ -13,6 +13,7 @@ import { UnlockActivityComponent } from './components/unlock-activity/unlock-act
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
   {path: 'create', component: TourCreationComponent},
+  {path: 'unlock-activity', component: UnlockActivityComponent},
   {path: '', component: TourViewComponent},
   //{ path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
