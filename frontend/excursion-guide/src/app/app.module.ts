@@ -7,11 +7,13 @@ import { TourViewComponent } from './components/tour-view/tour-view.component';
 import {TourCreationComponent} from "./components/tour-creation/tour-creation.component";
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
-import { TestComponent } from './test/test.component';
+import {FormsModule} from "@angular/forms";
+import { UnlockActivityComponent } from './components/unlock-activity/unlock-activity.component';
 
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
   {path: 'create', component: TourCreationComponent},
+  {path: '', component: TourViewComponent},
   //{ path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
 
@@ -20,14 +22,15 @@ const appRoutes: Routes = [
     AppComponent,
     TourCreationComponent,
     TourViewComponent,
-    TestComponent
+    UnlockActivityComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot(appRoutes),
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

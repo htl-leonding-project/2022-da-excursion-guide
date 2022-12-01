@@ -1,3 +1,37 @@
+<div class="flex-column" xmlns:width="http://www.w3.org/1999/xhtml">
+  <div class="flex flex-row" style="display: inline-block" *ngFor="let item of list">
+    <h1 style="text-align: center;">{{item.type}} {{item.location}}</h1>
+    <div class="flex flex-row" *ngIf="selectedValue.id >=0">
+      <div style="width: 60%;float: right;" class="flex flex-column">
+        <p>{{selectedValue.comment}}</p>
+      </div>
+    </div>
+    <div class="flex flex-column">
+      <div *ngFor="let topic of item.topics" class="flex flex-row">
+        <h2 (click)="selectedValue = topic" style="width: 40%;">{{topic.name}}</h2>
+      </div>
+    </div>
+  </div>
+  <h2 style="text-align: center">Nächster Treffpunkt </h2>
+  <div class="flex flex-column" *ngFor="let activity of selectedValue.activity">
+    <div *ngIf="activity.public" style="margin: 5%">
+      <div style="float: left">
+        <p style="text-align: left;margin-left: 10px">{{activity.activityName}}</p>
+        <p style="text-align: left;margin-left: 10px">{{activity.publicationDate |date:"short"}}</p>
+      </div>
+      <div style="float: right;" class="flex flex-row">
+        <a type="button" class="btn btn-primary btn-sm" href="{{getLinkForOpenStreetMap(activity)}}">open street map</a>
+        <br>
+        <a type="button" class="btn btn-primary btn-sm" href="{{getLinkForGoogleMaps(activity)}}">google maps</a>
+        <br>
+        <a type="button" class="btn btn-primary btn-sm" href=geo:activity.latitude,activity.longitude>default map</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
 <div class="container mt-5 col-12" *ngFor="let item of list">
   <h1>{{item.type}} {{item.location}}</h1>
   <div class="col-6" *ngFor="let topic of item.topics">
@@ -11,3 +45,19 @@
     </div>
   </div>
 </div>
+-->
+
+<!--
+<div *ngFor="let item of list">
+  <h1 class="">{{item.type}} {{item.location}}</h1>
+  <div class="container mt-5 col-12" [(ngModel)]="selectedValue" name="selectedValue" id="selectedValue">
+    <div *ngFor="let topic of item.topics">
+      <h2 (click)="selectedValue = topic.id" style="width: 40%;float: left">{{topic.name}}</h2>
+      <div style="width: 60%;float: right" *ngIf="selectedValue == topic.id">
+        <p>{{topic.comment}}</p>
+      </div>
+      <br style="clear:left;"/>
+    </div>
+  </div>
+</div>
+-->
