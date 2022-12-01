@@ -137,5 +137,3 @@ insert into activity(activityname, comment, ispublic, latitude, longitude, publi
 values ( 'Porto Antico'
        , 'Der Porto Antico ist ein Touristenhafen in Genua. Als ehemaliger Industriehafen war er lange Zeit von der angrenzenden Altstadt abgetrennt und wurde erst 1992, zur Expo anlässlich des Kolumbusjahres, von dem genuesischen Architekten Renzo Piano umstrukturiert und kulturell aufgewertet. Heute ist der Porto Antico einer der größten Anziehungspunkte für Touristen, aber auch für die Anwohner von Genua. '
        , false, 44.40881, 8.926, current_date, '2023-05-14 14:00', 4);
-
-
