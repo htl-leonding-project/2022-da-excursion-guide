@@ -88,7 +88,7 @@ values ('Mailand ist bekannt als die Modemetropole schlechthin, doch die italien
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ('Mailänder Dom',
         'Die Liste der wichtigsten Sehenswürdigkeiten in Mailand führt der Mailänder Dom an. Architektonisches Schmuckstück, Wahrzeichen der Stadt und Herzstück von Mailand. Egal, wer nach Mailand kommt, der erste Stopp ist in der Regel der Mailänder Dom mit dem großen Domplatz und den Domterrassen, die einen wunderschönen Ausblick auf die Stadt garantieren.',
-        false, 45.464098, 9.191926, current_date, '2023-05-11 13:00', 1);
+        true, 45.464098, 9.191926, current_date, '2023-05-11 13:00', 1);
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime,
                      previousactivity_id, topic_id)
 values ('Königlicher Palast ',
@@ -102,7 +102,7 @@ values ('Turin gehört zu den unterschätzten Städten Italiens und ist gerade d
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Venaria Reale '
        , 'Auch die Venaria Reale war ein Königspalast des Hauses Savoyen und gehört heute zum UNESCO-Weltkulturerbe. Es ist eines der größten Königsschlösser und hat riesige Gartenanlagen. Wir empfehlen, einen ganzen Tag für diese außerordentliche Sehenswürdigkeit mit dem gesamten Dorf ringsherum einzuplanen.'
-       , false, 45.464098, 9.191926, current_date, '2023-05-12 11:00', 2);
+       , true, 45.464098, 9.191926, current_date, '2023-05-12 11:00', 2);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Palazzo Reale'
@@ -116,7 +116,7 @@ values ('Die einzigartige Lagunenstadt an der italienischen Adria zählt zu den 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Canal Grande '
        , 'Fast 4 km schlängelt sich der Canal Grande durch die Stadt. Die Breite des Kanals schwankt zwischen 30 und 70 Metern, die Tiefe beträgt bis zu 5 Meter. Die Hauptwasserstraße der Lagune trennt die Stadtsechstel (Sestieri) San Marco, Cannaregio und Castello (auf der linken Seite) von den Stadtteilen Dorsoduro, San Polo & Santa Croce, die auf der rechten Kanalseite liegen.'
-       , false, 45.4311, 12.3281, current_date, '2023-05-13 11:00', 3);
+       , true, 45.4311, 12.3281, current_date, '2023-05-13 11:00', 3);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Scuola Grande di San Rocco'
@@ -131,11 +131,11 @@ values ('Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stad
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Das Aquarium von Genua '
        , 'Das Aquarium Genua (Italienisch: Acquario di Genova) ist das zweitgrößte Aquarium Europas, hinter dem L’Oceanogràfic in Valencia, Spanien. Es befindet sich auf dem Gelände des Porto Antico der italienischen Hafenstadt Genua. Das Aquarium wurde 1992 anlässlich der Feierlichkeiten zur 500-jährigen Entdeckung Amerikas eröffnet und in Folge mehrfach erweitert. Planung und architektonische Ausführung lagen bei den Architekten Renzo Piano und Peter Chermayeff. Zum Zeitpunkt seiner Eröffnung war es das zweitgrößte Aquarium der Welt. Es zeigt 70 Lebensräume und zirka 12.000 Exemplare von 600 Arten der Weltmeere.'
-       , false, 44.4102889, 8.9265472, current_date, '2023-05-14 11:00', 3);
+       , true, 44.4102889, 8.9265472, current_date, '2023-05-14 11:00', 4);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Porto Antico'
        , 'Der Porto Antico ist ein Touristenhafen in Genua. Als ehemaliger Industriehafen war er lange Zeit von der angrenzenden Altstadt abgetrennt und wurde erst 1992, zur Expo anlässlich des Kolumbusjahres, von dem genuesischen Architekten Renzo Piano umstrukturiert und kulturell aufgewertet. Heute ist der Porto Antico einer der größten Anziehungspunkte für Touristen, aber auch für die Anwohner von Genua. '
-       , false, 44.40881, 8.926, current_date, '2023-05-14 14:00', 3);
+       , false, 44.40881, 8.926, current_date, '2023-05-14 14:00', 4);
 
 
