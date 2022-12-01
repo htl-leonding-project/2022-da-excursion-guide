@@ -1,4 +1,4 @@
-package entity;
+package at.htl.leotour_backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
@@ -26,7 +26,7 @@ public class Activity extends PanacheEntityBase {
 
     private LocalDate publicationDate;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     private Topic topic;
 

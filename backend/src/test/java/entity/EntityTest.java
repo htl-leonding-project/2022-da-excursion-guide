@@ -1,5 +1,6 @@
 package entity;
 
+import at.htl.leotour_backend.entity.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

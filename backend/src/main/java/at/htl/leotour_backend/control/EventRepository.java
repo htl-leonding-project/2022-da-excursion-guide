@@ -1,8 +1,7 @@
-package control;
+package at.htl.leotour_backend.control;
 
 
-import entity.Event;
-import entity.Person;
+import at.htl.leotour_backend.entity.Event;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;

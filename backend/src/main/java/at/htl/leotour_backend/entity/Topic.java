@@ -1,4 +1,4 @@
-package entity;
+package at.htl.leotour_backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -14,14 +14,14 @@ public class Topic extends PanacheEntityBase {
     private long id;
     private String name;
 
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topic",fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Activity> activity;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Topic previousTopic;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     private Event event;
     private String comment;

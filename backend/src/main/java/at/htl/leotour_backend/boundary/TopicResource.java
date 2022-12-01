@@ -1,10 +1,8 @@
-package boundary;
+package at.htl.leotour_backend.boundary;
 
-import control.TopicRepository;
-import entity.Activity;
-import entity.Event;
-import entity.Person;
-import entity.Topic;
+import at.htl.leotour_backend.entity.Topic;
+import at.htl.leotour_backend.control.TopicRepository;
+import at.htl.leotour_backend.entity.Activity;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,8 +16,6 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TopicResource {
-    @Inject
-    EntityManager em;
     @Inject
     TopicRepository topicRepository;
 
@@ -59,7 +55,6 @@ public class TopicResource {
         tmp.setComment(topic.getComment());
         tmp.setName(topic.getName());
         tmp.setPreviousTopic(topic.getPreviousTopic());
-        tmp.setActivity(topic.getActivity());
         tmp.persistAndFlush();
         return Response.ok(topic).build();
     }
@@ -67,11 +62,10 @@ public class TopicResource {
     @POST
     @Transactional
     @Path("addActivity/{topicname}")
-    public Response addPersonToEvent(Activity activity, @PathParam("topicname")  String topicname) {
+    public Response addPersonToEvent(Activity activity, @PathParam("topicname") String topicname) {
         Topic topic = topicRepository.getTopic(topicname);
-        List<Activity> activities = topic.getActivity();
+        List<Activity> activities = topicRepository.getActivities(topic);
         activities.add(activity);
-        topic.setActivity(activities);
         Topic.deleteById(topic.getId());
         Topic.persist(topic);
         activity.setTopic(topic);

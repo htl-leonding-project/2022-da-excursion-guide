@@ -1,10 +1,10 @@
-package boundary;
+package at.htl.leotour_backend.boundary;
 
 
-import control.EventRepository;
-import entity.Event;
-import entity.Person;
-import entity.Topic;
+import at.htl.leotour_backend.entity.Event;
+import at.htl.leotour_backend.entity.Topic;
+import at.htl.leotour_backend.control.EventRepository;
+import at.htl.leotour_backend.entity.Person;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

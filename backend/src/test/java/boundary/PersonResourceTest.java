@@ -1,7 +1,7 @@
 package boundary;
 
-import entity.Person;
-import entity.Role;
+import at.htl.leotour_backend.entity.Person;
+import at.htl.leotour_backend.entity.Role;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;

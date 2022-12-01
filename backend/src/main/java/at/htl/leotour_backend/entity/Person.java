@@ -1,4 +1,4 @@
-package entity;
+package at.htl.leotour_backend.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;

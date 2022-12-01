@@ -1,7 +1,6 @@
-package boundary;
+package at.htl.leotour_backend.boundary;
 
-import entity.Event;
-import entity.Person;
+import at.htl.leotour_backend.entity.Person;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -9,7 +8,6 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("api/person")
 @Produces(MediaType.APPLICATION_JSON)

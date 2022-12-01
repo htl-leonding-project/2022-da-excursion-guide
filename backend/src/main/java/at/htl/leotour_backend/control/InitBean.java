@@ -1,4 +1,4 @@
-package control;
+package at.htl.leotour_backend.control;
 
 import io.quarkus.runtime.StartupEvent;
 
