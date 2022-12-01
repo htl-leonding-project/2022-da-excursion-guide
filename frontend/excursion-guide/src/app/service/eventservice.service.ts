@@ -13,4 +13,6 @@ export class EventserviceService {
   getAllEvents():Observable<Event[]> {
     return this.http.get<Event[]>(environment.url+"/event/getAll");
   }
+
+
 }
