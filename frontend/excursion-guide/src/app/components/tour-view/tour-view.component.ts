@@ -14,6 +14,7 @@ export class TourViewComponent implements OnInit {
   list: Event[] = [];
 
   selectedValue: Topic = {id: -1, activity: [], comment: "", name: "", previousTopic: null};
+  notselected: Topic = {id: -1, activity: [], comment: "", name: "", previousTopic: null};
 
   constructor(private eventService: EventserviceService) {
   }
@@ -22,7 +23,7 @@ export class TourViewComponent implements OnInit {
     this.getAllEvents();
   }
 
-  getAllEvents() {
+  public getAllEvents() {
     this.eventService.getAllEvents()
       .subscribe((data: Event[]) => {
         this.list = data;

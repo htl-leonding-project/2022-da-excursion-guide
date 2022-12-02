@@ -1,23 +1,48 @@
-<div class="flex flex-row">
+<div class="flex flex-column" style="text-align: center">
   <div *ngFor="let event of list">
     <h1 class="h1" style="text-align: center">{{event.type}} {{event.location}}</h1>
     <div *ngFor="let topic of event.topics">
       <h2 class="h2" style="float: left;width: 100%;text-align: center">{{topic.name}}</h2>
       <div *ngFor="let activity of topic.activity">
-        <div *ngIf="activity.public" style="float: left">
-          <p style="margin-left: 5%;margin-right: 5%">{{activity.activityName}}</p>
-          <button class="btn btn-primary" style="margin-left: 5%;margin-right: 5%"
-                  (click)="changeVisibility(activity,topic)">
-            Aktivität sperren
-          </button>
-        </div>
-        <div *ngIf="!activity.public" style="float: right">
-          <p style="margin-left: 5%;margin-right: 5%;">{{activity.activityName}}</p>
-          <button class="btn btn-primary" style="margin-left: 5%;margin-right: 5%"
-                  (click)="changeVisibility(activity,topic)">Aktivität freischalten
-          </button>
-        </div>
+        <table class="table">
+          <div style="margin-left: 5%;margin-right: 5%;text-align: center">
+            <button *ngIf="activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+                    (click)="changeVisibility(activity,topic)">
+              Aktivität sperren
+            </button>
+            <button *ngIf="!activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+                    (click)="changeVisibility(activity,topic)">
+              Aktivität freischalten
+            </button>
+            <p style="width: 40%;float: left">{{activity.activityName}}</p>
+          </div>
+        </table>
       </div>
     </div>
   </div>
 </div>
+
+
+<!--
+<div class="flex flex-row" style="margin-left: 5%;margin-right: 5%;text-align: center;padding: 14%">
+  <button *ngIf="activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+          (click)="changeVisibility(activity,topic)">
+    Aktivität sperren
+  </button>
+  <button *ngIf="!activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+          (click)="changeVisibility(activity,topic)">
+    Aktivität freischalten
+  </button>
+  <p style="width: 40%;float: left">{{activity.activityName}}</p>
+</div>
+
+<p style="width: 40%;float: left">{{activity.activityName}}</p>
+<button *ngIf="activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+        (click)="changeVisibility(activity,topic)">
+  Aktivität sperren
+</button>
+<button *ngIf="!activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
+        (click)="changeVisibility(activity,topic)">
+  Aktivität freischalten
+</button>
+-->

@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { TourViewComponent } from './components/tour-view/tour-view.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {TourCreationComponent} from "./components/tour-creation/tour-creation.component";
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-import { UnlockActivityComponent } from './components/unlock-activity/unlock-activity.component';
+import {UnlockActivityComponent} from './components/unlock-activity/unlock-activity.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
@@ -25,14 +28,18 @@ const appRoutes: Routes = [
     TourViewComponent,
     UnlockActivityComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterModule.forRoot(appRoutes),
-        HttpClientModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatButtonToggleModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -4,6 +4,7 @@ import {EventserviceService} from "../../services/eventservice.service";
 import {Activity} from "../../model/activity";
 import {ActivityDto} from "../../model/activityDto";
 import {Topic} from "../../model/topic";
+import {TourViewComponent} from "../tour-view/tour-view.component";
 
 @Component({
   selector: 'app-unlock-activity',
