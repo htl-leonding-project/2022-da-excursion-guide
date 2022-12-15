@@ -95,7 +95,7 @@ class ActivityResourceTest {
         given()
                 .body(Map.of("activityName", "EditActivity","comment","editcomment"))
                 .contentType(ContentType.JSON)
-                .when().patch("/api/activity/editActivity/" + activityId)
+                .when().put("/api/activity/editActivity/" + activityId)
                 .then()
                 .statusCode(200)
                 .body("activityName", is("EditActivity"))

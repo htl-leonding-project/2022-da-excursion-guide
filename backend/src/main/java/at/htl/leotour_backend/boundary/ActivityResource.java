@@ -29,7 +29,6 @@ public class ActivityResource {
     @Transactional
     @Path("addActivity")
     public Activity add(Activity activity){
-        activity.setId(-1);
         activity.persistAndFlush();
         return activity;
     }

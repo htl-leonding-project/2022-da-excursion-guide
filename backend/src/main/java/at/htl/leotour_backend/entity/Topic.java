@@ -14,7 +14,7 @@ public class Topic extends PanacheEntityBase {
     private long id;
     private String name;
 
-    @OneToMany(mappedBy = "topic",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topic",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Activity> activity;
 
