@@ -1,6 +1,6 @@
 <div class="flex-column" xmlns:width="http://www.w3.org/1999/xhtml">
   <div class="flex flex-row" style="display: inline-block" *ngFor="let item of list">
-    <h1 style="text-align: center;">{{item.type}} {{item.location}}</h1>
+    <h1 style="text-align: center;position: center">{{item.type}} {{item.location}}</h1>
     <div class="flex flex-row" *ngIf="selectedValue.id >=0">
       <div style="width: 60%;float: right;" class="flex flex-column">
         <p>{{selectedValue.comment}}</p>
@@ -8,7 +8,8 @@
     </div>
     <div class="flex flex-column">
       <div *ngFor="let topic of item.topics" class="flex flex-row">
-        <h2 (click)="selectedValue = topic" style="width: 40%;">{{topic.name}}</h2>
+        <h2 (click)="selectedValue = topic" (dblclick)="selectedValue = notselected"
+            style="width: 40%;">{{topic.name}}</h2>
       </div>
     </div>
   </div>
