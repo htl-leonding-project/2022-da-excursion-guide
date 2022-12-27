@@ -35,18 +35,11 @@ export class TourViewComponent implements OnInit {
 
 
   getLinkForOpenStreetMap(activity: Activity) {
-    //this.getlocation();
     return "https://www.openstreetmap.org/directions?engine=graphhopper_foot&route=" + this.latitude + "%2C" + this.longitude + "%3B" + activity.latitude + "%2C" + activity.longitude;
-    //return "https://www.openstreetmap.org/directions?engine=graphhopper_foot&route=%3B" + activity.latitude + "%2C" + activity.longitude;
   }
 
   getLinkForGoogleMaps(activity: Activity) {
-    //return "https://www.google.com/maps/dir/?api=1&destination=" + activity.latitude + "," + activity.longitude;
     return "https://www.google.com/maps/dir/?api=1&origin=" + this.latitude + "," + this.longitude + "&destination=" + activity.latitude + "," + activity.longitude;
-  }
-
-  getLinkForOpenStreetMapWithCurrentPosition(activity: Activity) {
-    return "https://www.openstreetmap.org/directions?engine=graphhopper_foot&route=" + this.latitude + "%2C" + this.longitude + "%3B" + activity.latitude + "%2C" + activity.longitude;
   }
 
   getUserLocation() {
@@ -57,7 +50,10 @@ export class TourViewComponent implements OnInit {
       });
     } else {
       console.log("User not allow")
-
     }
+  }
+
+  openDefaultMap(activity: Activity) {
+    return "https://maps.apple.com/?daddr=" + activity.latitude + "," + activity.longitude+"&saddr="+this.latitude+","+this.longitude;
   }
 }
