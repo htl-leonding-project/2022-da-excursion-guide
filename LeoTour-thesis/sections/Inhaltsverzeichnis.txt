@@ -1,0 +1,37 @@
+1 Ausgangssituation und Zielsetzung
+1.1 Ausgangssituation
+1.2 Ist-Zustand 
+1.3 Beschreibung der Problemstellung
+1.4 Marktanalyse
+1.5 Aufgabenstellung
+1.5.1 Gesamtkonzept
+1.5.2 Aufgabenbereiche der vorliegenden Arbeit
+1.5.3 Funktionale Anforderungen
+1.5.4 Nichtfunktionale Anforderungen
+1.6 Ziele
+2 Systemarchitektur
+2.1 Verschiedene Versionen der Anzeige
+2.1.1 Version 1: Leaflet Karte
+2.1.2 Version 2: Leaflet Karte mit Routing
+2.1.3 Version 3: angular geoloaction api
+2.2 Aktuelle Komponenten 
+2.2.1 Angular Frontend
+2.2.2 Quarkus Backend 
+2.2.3 Keycloak 
+eventuell(2.2.4 Traeffic)
+2.3 Mögliche zukünftige Erweiterungen
+3 Schnittstellendefinition:
+3.1 Beispiel 
+3.1.1 Erstellen eines Events
+3.2 Rest-Endpoints 
+3.2.1 Create Event
+3 2.2 Get Event By ID
+3.2.3 List All Events
+4 Ausgewählte Aspekte
+4.1 Standorterkennung durch Angular und Browser
+4.2 Die Schüler Ansicht
+4.3 JsonManagedReference & JsonBackReference
+5 Resümee
+6 Anhang
+6.1 Besprechungsprotokolle
+7 Quellenverzeichnis
