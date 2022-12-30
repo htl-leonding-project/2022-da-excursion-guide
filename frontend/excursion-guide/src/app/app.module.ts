@@ -11,7 +11,7 @@ import {UnlockActivityComponent} from './components/unlock-activity/unlock-activ
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatStepperModule} from "@angular/material/stepper";
+import {MatStep, MatStepLabel, MatStepperModule} from "@angular/material/stepper";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -19,6 +19,9 @@ import {MatInputModule} from "@angular/material/input";
 import { TourCreateComponent } from './components/tour-create/tour-create.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatNativeDateModule} from "@angular/material/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
@@ -44,14 +47,17 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     MatTableModule,
     MatButtonToggleModule,
-    MatStepperModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatStepperModule
   ],
   exports:[
   ],
