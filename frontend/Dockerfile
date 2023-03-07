@@ -4,7 +4,7 @@ COPY ./excursion-guide/package*.json /app/
 RUN npm install
 COPY ./excursion-guide /app/
 ARG configuration=production
-RUN npm run build -- --output-path=./dist/out --configuration $configuration --base-href=/o.sugic/leotour-frontend
+RUN npm run build -- --output-path=./dist/out --configuration $configuration --base-href=/o.sugic/leotour-frontend/
 
 # Stage 2, use the compiled app, ready for production with Nginx
 FROM nginx
