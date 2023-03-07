@@ -1,6 +1,6 @@
 FROM node:16 as build
-WORKDIR /excursion-guide
-COPY package*.json /app/
+WORKDIR /app
+COPY ./excursion-guide/package*.json /app/
 RUN npm install
 COPY ./excursion-guide/* /app
 ARG configuration=production
