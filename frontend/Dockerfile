@@ -1,5 +1,5 @@
 FROM node:16 as build
-WORKDIR /app
+WORKDIR /excursion-guide
 COPY package*.json /app/
 RUN npm install
 COPY ./excursion-guide/* /app
