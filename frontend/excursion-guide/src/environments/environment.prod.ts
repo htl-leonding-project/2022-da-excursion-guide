@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  URL_BASE_URL: 'https://student.cloud.htl-leonding.ac.at/o.sugic',
+  url: 'https://student.cloud.htl-leonding.ac.at/o.sugic/leoTour-frontend',
 };
