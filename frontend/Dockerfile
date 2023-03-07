@@ -2,7 +2,7 @@ FROM node:16 as build
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
-COPY . /app
+COPY ./excursion-guide/app
 ARG configuration=production
 RUN npm run build -- --output-path=./dist/out --configuration $configuration --base-href=/o.sugic/leoTour/
 
