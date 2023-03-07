@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "http://localhost:8080/api" //API URL
+  URL_BASE_URL: 'https://student.cloud.htl-leonding.ac.at/o.sugic',
 };
