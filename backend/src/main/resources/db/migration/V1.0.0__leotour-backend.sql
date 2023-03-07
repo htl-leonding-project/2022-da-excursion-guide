@@ -110,7 +110,7 @@ values ( 'Palazzo Reale'
        , false, 40.8362, 14.2496, current_date, '2023-05-12 14:00', 2);
 
 insert into topic (comment, name, event_id, previoustopic_id)
-values ('Die einzigartige Lagunenstadt an der italienischen Adria zählt zu den weltweit bedeutendsten Zielen für Städtereisen. Neben prächtigen Kirchen und einzigartigen Museen und Palästen sind es vor allem die Kanäle mit ihren Gondeln, die der Stadt diesen unvergesslichen Charme geben. Venedigs Architektur ist einzigartig und der richtige Ort um sich einfach treiben zu lassen. Die Stadt ist ein riesiges Freilichtmuseum mit unzähligen Kunst und Kulturschätzen und bietet darüber hinaus auch noch eine Menge kulinarischer Köstlichkeiten.',
+values ('Die einzigartige Lagunenstadt an der italienischen Adria zählt zu den weltweit bedeutendsten Zielen für Städtereisen. Neben prächtigen Kirchen und einzigartigen Museen und Palästen sind es vor allem die Kanäle mit ihren Gondeln, die der Stadt diesen unvergesslichen Charme geben. Venedigs Architektur ist einzigartig und der richtige Ort um sich einfach treiben zu lassen.',
         'Venedig', 1, 2);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
@@ -120,7 +120,7 @@ values ( 'Canal Grande '
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Scuola Grande di San Rocco'
-       , 'Die Scuola Grande di San Marco gilt als die bekannteste Bruderschaft des früheren Venedigs. Das ehemalige Haus der Bruderschaft mit seiner wunderschönen Fassade ist eine besondere Sehenswürdigkeit und befindet sich am Campo San Rocco im Sestiere San Polo. Das ursprüngliche Gebäude fiel 1445 leider einem Feuer zum Opfer, im Jahr 1488 wurde mit dem Bau des neuen Gebäudes begonnen.Die Scuola Grande di San Marco ist für seine berühmten Deckengemälde mit Szenen aus dem Alten Testament und den sehr großen Bildern an den Wänden bekannt. Hier können auch die 56 Gemälde von Jacopo Tintoretto besichtigt werden.'
+       , 'Die Scuola Grande di San Marco gilt als die bekannteste Bruderschaft des früheren Venedigs. Das ehemalige Haus der Bruderschaft mit seiner wunderschönen Fassade ist eine besondere Sehenswürdigkeit und befindet sich am Campo San Rocco im Sestiere San Polo. Das ursprüngliche Gebäude fiel 1445 leider einem Feuer zum Opfer, im Jahr 1488 wurde mit dem Bau des neuen Gebäudes begonnen.'
        , false, 45.4366, 12.325, current_date, '2023-05-13 14:00', 3);
 
 
