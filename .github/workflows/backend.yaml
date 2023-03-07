@@ -32,12 +32,8 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v4
+        working-directory: ./backend
         with:
-          context: ./backend
-          file: ./backend/src/main/docker/Dockerfile.jvm
+          file: ./src/main/docker/Dockerfile.jvm
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}-backend:latest
-          build-args: |
-            configuration=production
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}-backend:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}-backend:buildcache,mode=max
