@@ -1,0 +1,7 @@
+<button class="btn" (click)="login()">Login</button>
+<button class="btn" (click)="logout()">Logout</button>
+
+<div *ngIf="userData != null">
+  <h3>User data of signed-in user:</h3>
+  <p>{{getFormattedUserData()}}</p>
+</div>

@@ -316,7 +316,6 @@
       ],
       "security-admin-console": [],
       "admin-cli": [],
-      "account-console": [],
       "broker": [
         {
           "id": "445f6b08-1863-48b5-806a-03446cad8c62",

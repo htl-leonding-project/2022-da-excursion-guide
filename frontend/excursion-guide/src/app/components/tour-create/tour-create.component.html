@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Event</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="form-group" style="margin-left: 50px;margin-right: 50px">
+  <form>
+    <h1 class="h1">Create Event</h1>
+    <div style="width: 50%">
+      <div class="form-group">
+        <label class="col-form-label">Location</label>
+        <input class="form-control"
+               type="text" name="event.location" [(ngModel)]="event.location">
+      </div>
+      <div class="form-group">
+        <label>Max Person Allowed</label>
+        <input class="form-control"
+               type="number" name="event.maxPersonAllowed" [(ngModel)]="event.maxPersonAllowed">
+      </div>
+      <div class="form-group">
+        <label>Type</label>
+        <input class="form-control"
+               type="text" name="event.type" [(ngModel)]="event.type">
+      </div>
+      <div class="form-group">
+        <label>Planned Start Date & Time</label>
+        <input class="form-control"
+               type="datetime-local" name="event.planedStartDateTime" [(ngModel)]="event.planedStartDateTime">
+      </div>
+      <div class="form-group">
+        <label>Planned End Date & Time</label>
+        <input class="form-control"
+               type="datetime-local" name="event.planedEndDateTime" [(ngModel)]="event.planedEndDateTime">
+      </div>
+    </div>
+    <br>
+    <div>
+      <table style="width: 100%;table-layout: fixed">
+        <tr>
+          <td style="width: 50%">
+            <div>
+              <h3>Participant</h3>
+              <div class="form-group">
+                <label>Firstname</label>
+                <input class="form-control"
+                       type="text" name="participant.firstname" [(ngModel)]="participant.firstname">
+              </div>
+              <div class="form-group">
+                <label>Lastname</label>
+                <input class="form-control"
+                       type="text" name="participant.lastname" [(ngModel)]="participant.lastname">
+              </div>
+              <div class="form-group">
+                <label>Role</label>
+                <select class="form-control" name="participant.role" [(ngModel)]="participant.role">
+                  <option value="IN_CHARGE">In Charge</option>
+                  <option value="STAFF">Staff</option>
+                  <option value="MEMBER">Member</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Telephone</label>
+                <input class="form-control"
+                       type="tel" name="participant.telephone" [(ngModel)]="participant.telephone">
+              </div>
+              <div class="form-group">
+                <label>Comment</label>
+                <textarea class="form-control"
+                          name="participant.comment" [(ngModel)]="participant.comment">
+              </textarea>
+              </div>
+            </div>
+            <button class="btn btn-primary" (click)="AddParticipant()">Add Participant</button>
+          </td>
+          <td>
+            <div style="margin-left: 50px;">
+              <div style="overflow-y: scroll;height: 400px;">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="h4">Added Participant</th>
+                    <th class="h4">Role</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let participant of event.participant">
+                    <td>{{participant.firstname}} {{participant.lastname}}</td>
+                    <td *ngIf="participant.role == 'IN_CHARGE'">In Charge</td>
+                    <td *ngIf="participant.role == 'STAFF'">Staff</td>
+                    <td *ngIf="participant.role == 'MEMBER'">Member</td>
+                    <td>
+                      <button class="btn btn-outline-secondary" (click)="deselect(participant)">-</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div>
+      <table style="width: 100%;">
+        <tr>
+          <td style="width: 50%">
+            <div>
+              <h3>Topics</h3>
+              <div class="form-group">
+                <label>Name</label>
+                <input class="form-control"
+                       type="text" name="topic.name" [(ngModel)]="topic.name">
+              </div>
+              <div class="form-group">
+                <label class="">Comment</label>
+                <textarea class="form-control"
+                          name="topic.comment" [(ngModel)]="topic.comment"></textarea>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div style="margin-left: 50px;margin-top: 50px">
+              <div style="overflow-y: scroll;height: 150px;">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="h4">Added Topic</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let topic of event.topics">
+                    <td>{{topic.name}}</td>
+                    <td>
+                      <button class="btn btn-outline-secondary" (click)="deselectTopic(topic)">-</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <button class="btn btn-primary" (click)="AddTopic()">Add Topic</button>
+    </div>
+    <br>
+
+    <button class="btn btn-primary">Create</button>
+  </form>
+</div>
+</body>
+</html>

@@ -130,7 +130,7 @@ values ('Zwischen dem Meer und dem Apenninengebirge gelegen, zieht sich die Stad
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
 values ( 'Das Aquarium von Genua '
-       , 'Das Aquarium Genua (Italienisch: Acquario di Genova) ist das zweitgrößte Aquarium Europas, hinter dem L’Oceanogràfic in Valencia, Spanien. Es befindet sich auf dem Gelände des Porto Antico der italienischen Hafenstadt Genua. Das Aquarium wurde 1992 anlässlich der Feierlichkeiten zur 500-jährigen Entdeckung Amerikas eröffnet und in Folge mehrfach erweitert. Planung und architektonische Ausführung lagen bei den Architekten Renzo Piano und Peter Chermayeff. Zum Zeitpunkt seiner Eröffnung war es das zweitgrößte Aquarium der Welt. Es zeigt 70 Lebensräume und zirka 12.000 Exemplare von 600 Arten der Weltmeere.'
+       , 'Das Aquarium Genua ist das zweitgrößte Aquarium Europas, hinter dem L’Oceanogràfic in Valencia, Spanien. Es befindet sich auf dem Gelände des Porto Antico der italienischen Hafenstadt Genua. Das Aquarium wurde 1992 anlässlich der Feierlichkeiten zur 500-jährigen Entdeckung Amerikas eröffnet und in Folge mehrfach erweitert. Planung und architektonische Ausführung lagen bei den Architekten Renzo Piano und Peter Chermayeff. Zum Zeitpunkt seiner Eröffnung war es das zweitgrößte Aquarium der Welt.'
        , true, 44.4102889, 8.9265472, current_date, '2023-05-14 11:00', 4);
 
 insert into activity(activityname, comment, ispublic, latitude, longitude, publicationdate, startdatetime, topic_id)
