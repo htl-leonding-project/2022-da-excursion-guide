@@ -12,6 +12,20 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import { LoginComponent } from './components/login/login.component';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import {MatIconModule} from "@angular/material/icon";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
+import {MatListModule} from "@angular/material/list";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCardModule} from "@angular/material/card";
+import {MatRippleModule} from "@angular/material/core";
+import { AddActivitiesComponent } from './components/tour-create/add-activities/add-activities.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -30,6 +44,8 @@ const appRoutes: Routes = [
     UnlockActivityComponent,
     TourCreateComponent,
     LoginComponent,
+    AddActivitiesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,11 +67,25 @@ const appRoutes: Routes = [
         useRefreshToken: true,
         logLevel: LogLevel.Debug
       }
-    })
+    }),
+    MatIconModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatInputModule,
+    MatTableModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatListModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatRippleModule,
   ],
   exports:[
   ],
-  providers: [],
+  providers: [
+    //{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,7 @@
 package at.htl.leotour_backend.boundary;
 
 
+import at.htl.leotour_backend.entity.Activity;
 import at.htl.leotour_backend.entity.Event;
 import at.htl.leotour_backend.entity.Topic;
 import at.htl.leotour_backend.control.EventRepository;
@@ -32,7 +33,7 @@ public class EventResource {
 
     @GET
     @Path("{id}")
-    public Response getById(@PathParam("id")long id) {
+    public Response getById(@PathParam("id") long id) {
         return Response.ok(Event.findById(id)).build();
     }
 
@@ -40,8 +41,31 @@ public class EventResource {
     @Transactional
     @Path("addEvent")
     public Response add(Event event) {
-        event.persistAndFlush();
-        return Response.ok(event).build();
+        Event newEvent = new Event();
+        newEvent.setLocation(event.getLocation());
+        newEvent.setMaxPersonAllowed(event.getMaxPersonAllowed());
+        newEvent.setType(event.getType());
+        newEvent.setPlanedEndDateTime(event.getPlanedEndDateTime());
+        newEvent.setPlanedStartDateTime(event.getPlanedStartDateTime());
+
+        for (Person person : event.getParticipant()) {
+            person.setEvent(newEvent);
+            person.persist();
+        }
+
+        for (Topic topic : event.getTopics()) {
+            topic.setEvent(newEvent);
+            topic.persist();
+            for (Activity activity : topic.getActivity()
+            ) {
+                {
+                    activity.setTopic(topic);
+                    activity.persist();
+                }
+            }
+        }
+        newEvent.persist();
+        return Response.ok(newEvent).build();
     }
 
     @DELETE

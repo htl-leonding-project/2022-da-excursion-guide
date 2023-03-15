@@ -1,7 +1,7 @@
 export interface Activity {
   activityName:     string;
   comment:          string;
-  id:               number;
+  id?:               number;
   latitude:         number;
   longitude:        number;
   previousActivity: Activity | null;

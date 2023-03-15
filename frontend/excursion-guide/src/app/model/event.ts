@@ -2,7 +2,7 @@ import {Person} from "./person";
 import {Topic} from "./topic";
 
 export interface Event {
-  id:                  number;
+  id?:                  number;
   maxPersonAllowed:    number;
   location:            string;
   participant:         Person[];

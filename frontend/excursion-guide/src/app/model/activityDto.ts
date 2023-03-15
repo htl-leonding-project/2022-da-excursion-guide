@@ -1,5 +1,5 @@
 export interface ActivityDto{
-  id:number,
+  id?:number,
   activityName:String,
   startDateTime:Date,
   longitude:number,
@@ -8,5 +8,5 @@ export interface ActivityDto{
   comment:string,
   isPublic:boolean,
   publicationDate:Date,
-  topicId:number,
+  topicId?:number,
 }

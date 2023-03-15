@@ -1,156 +1,232 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Create Event</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<div class="form-group" style="margin-left: 50px;margin-right: 50px">
-  <form>
-    <h1 class="h1">Create Event</h1>
-    <div style="width: 50%">
-      <div class="form-group">
-        <label class="col-form-label">Location</label>
-        <input class="form-control"
-               type="text" name="event.location" [(ngModel)]="event.location">
+<h1 class="m-auto" style="text-align: center;padding-top: 20px">Create Event</h1>
+<form>
+
+  <mat-stepper #stepper class="stepper">
+    <mat-step label="Event Information">
+      <div class="col-xl-6 m-auto">
+        <h3>Event Information</h3>
+        <div class="form-group">
+          <label class="font-size">Location</label>
+          <input class="form-control"
+                 type="text" name="event.location" [(ngModel)]="event.location">
+        </div>
+        <div class="form-group">
+          <label class="font-size">Max Person Allowed</label>
+          <input class="form-control"
+                 type="number" name="event.maxPersonAllowed" [(ngModel)]="event.maxPersonAllowed">
+        </div>
+        <div class="form-group">
+          <label class="font-size">Type</label>
+          <input class="form-control"
+                 type="text" name="event.type" [(ngModel)]="event.type">
+        </div>
+        <div class="form-group">
+          <label class="font-size">Planned Start Date & Time</label>
+          <input class="form-control"
+                 type="datetime-local" name="event.planedStartDateTime" [(ngModel)]="event.planedStartDateTime">
+        </div>
+        <div class="form-group">
+          <label class="font-size">Planned End Date & Time</label>
+          <input class="form-control"
+                 type="datetime-local" name="event.planedEndDateTime" [(ngModel)]="event.planedEndDateTime">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Max Person Allowed</label>
-        <input class="form-control"
-               type="number" name="event.maxPersonAllowed" [(ngModel)]="event.maxPersonAllowed">
-      </div>
-      <div class="form-group">
-        <label>Type</label>
-        <input class="form-control"
-               type="text" name="event.type" [(ngModel)]="event.type">
-      </div>
-      <div class="form-group">
-        <label>Planned Start Date & Time</label>
-        <input class="form-control"
-               type="datetime-local" name="event.planedStartDateTime" [(ngModel)]="event.planedStartDateTime">
-      </div>
-      <div class="form-group">
-        <label>Planned End Date & Time</label>
-        <input class="form-control"
-               type="datetime-local" name="event.planedEndDateTime" [(ngModel)]="event.planedEndDateTime">
-      </div>
-    </div>
-    <br>
-    <div>
+    </mat-step>
+
+    <mat-step label="Add Participants">
       <table style="width: 100%;table-layout: fixed">
         <tr>
           <td style="width: 50%">
             <div>
               <h3>Participant</h3>
               <div class="form-group">
-                <label>Firstname</label>
+                <label class="font-size">Firstname</label>
                 <input class="form-control"
                        type="text" name="participant.firstname" [(ngModel)]="participant.firstname">
               </div>
               <div class="form-group">
-                <label>Lastname</label>
+                <label class="font-size">Lastname</label>
                 <input class="form-control"
                        type="text" name="participant.lastname" [(ngModel)]="participant.lastname">
               </div>
               <div class="form-group">
-                <label>Role</label>
-                <select class="form-control" name="participant.role" [(ngModel)]="participant.role">
-                  <option value="IN_CHARGE">In Charge</option>
-                  <option value="STAFF">Staff</option>
-                  <option value="MEMBER">Member</option>
-                </select>
+                <label class="font-size">Role</label>
+                <mat-select class="form-control" placeholder="Select Role ... " name="participant.role"
+                            [(ngModel)]="participant.role">
+                  <mat-option value="IN_CHARGE">In Charge</mat-option>
+                  <mat-option value="STAFF">Staff</mat-option>
+                  <mat-option value="MEMBER">Member</mat-option>
+                </mat-select>
               </div>
               <div class="form-group">
-                <label>Telephone</label>
+                <label class="font-size">Telephone</label>
                 <input class="form-control"
                        type="tel" name="participant.telephone" [(ngModel)]="participant.telephone">
               </div>
-              <div class="form-group">
-                <label>Comment</label>
+              <div class="form-group" style="padding-bottom: 20px">
+                <label class="font-size">Comment</label>
                 <textarea class="form-control"
                           name="participant.comment" [(ngModel)]="participant.comment">
               </textarea>
               </div>
             </div>
-            <button class="btn btn-primary" (click)="AddParticipant()">Add Participant</button>
+            <button class="btn btn-primary" mat-fab extended color="primary" (click)="AddParticipant()">Add Participant
+              <mat-icon>add</mat-icon>
+            </button>
+            <br>
           </td>
           <td>
             <div style="margin-left: 50px;">
-              <div style="overflow-y: scroll;height: 400px;">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th class="h4">Added Participant</th>
-                    <th class="h4">Role</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let participant of event.participant">
-                    <td>{{participant.firstname}} {{participant.lastname}}</td>
-                    <td *ngIf="participant.role == 'IN_CHARGE'">In Charge</td>
-                    <td *ngIf="participant.role == 'STAFF'">Staff</td>
-                    <td *ngIf="participant.role == 'MEMBER'">Member</td>
-                    <td>
-                      <button class="btn btn-outline-secondary" (click)="deselect(participant)">-</button>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <br>
-    <div>
-      <table style="width: 100%;">
-        <tr>
-          <td style="width: 50%">
-            <div>
-              <h3>Topics</h3>
-              <div class="form-group">
-                <label>Name</label>
-                <input class="form-control"
-                       type="text" name="topic.name" [(ngModel)]="topic.name">
-              </div>
-              <div class="form-group">
-                <label class="">Comment</label>
-                <textarea class="form-control"
-                          name="topic.comment" [(ngModel)]="topic.comment"></textarea>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div style="margin-left: 50px;margin-top: 50px">
-              <div style="overflow-y: scroll;height: 150px;">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th class="h4">Added Topic</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let topic of event.topics">
-                    <td>{{topic.name}}</td>
-                    <td>
-                      <button class="btn btn-outline-secondary" (click)="deselectTopic(topic)">-</button>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
-      <button class="btn btn-primary" (click)="AddTopic()">Add Topic</button>
-    </div>
-    <br>
+              <div style="height: 400px;">
+                <table *ngIf="event.participant.length > 0" mat-table [dataSource]="getDatasource()"
+                       class="mat-elevation-z8">
 
-    <button class="btn btn-primary">Create</button>
-  </form>
-</div>
-</body>
-</html>
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="firstname">
+                    <th mat-header-cell *matHeaderCellDef> Firstname</th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="lastname">
+                    <th mat-header-cell *matHeaderCellDef> Lastname</th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef> Role</th>
+                    <td mat-cell
+                        *matCellDef="let element"> {{element.role === "MEMBER" ? "Member" : element.role === "STAFF" ? "Staff" : "In Charge"}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button (click)="deselect(element)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </mat-step>
+
+    <mat-step label="Add Topics and Activities">
+      <div>
+        <table style="width: 100%;">
+          <tr>
+            <td style="width: 50%">
+              <div>
+                <h3>Topics</h3>
+                <div class="form-group">
+                  <label class="font-size">Name</label>
+                  <input class="form-control"
+                         type="text" name="topic.name" [(ngModel)]="topicName">
+                </div>
+                <div class="form-group">
+                  <label class="font-size">Comment</label>
+                  <textarea class="form-control"
+                            name="topic.comment" [(ngModel)]="topicComment"></textarea>
+                </div>
+                <div class="form-group" style="padding-bottom: 20px">
+                  <label class="font-size">Previous Topic</label>
+                  <input disabled class="form-control"
+                         type="text" name="topic.prev" [(ngModel)]="selectedTopic.name">
+                </div>
+                <button mat-fab extended color="primary" (click)="AddTopic()">Add Topic
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </td>
+            <td>
+              <div style="margin-left: 50px;margin-top: 50px">
+                <table *ngIf="event.topics.length > 0" mat-table [dataSource]="getDatasourceTopic()"
+                       class="mat-elevation-z8">>
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Firstname</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="activities">
+                    <th mat-header-cell *matHeaderCellDef> Activities</th>
+                    <td mat-cell *matCellDef="let element"> {{element.activity.length}} </td>
+                  </ng-container>
+
+                  <!-- Add Activity Column -->
+                  <ng-container matColumnDef="addActivity">
+                    <th mat-header-cell *matHeaderCellDef> Add Activity</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button (click)="AddActivity()">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
+                  <!-- Delete Column -->
+                  <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button (click)="deselectTopic(element)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumnsTopic"></tr>
+                  <tr (click)="SelectTopic(element)" class="example-element-row" mat-row
+                      *matRowDef="let element; columns: displayedColumnsTopic;"></tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xl-6">
+
+          <button mat-fab extended color="primary" (click)="CreateEvent()"><mat-icon>add_task</mat-icon>Create Event</button>
+        </div>
+        <div class="col-xl-6">
+
+          <h2 *ngIf="selectedTopic.name != ''">Activities for {{selectedTopic.name}}</h2>
+          <mat-divider *ngIf="selectedTopic.name != ''"></mat-divider>
+
+          <h5 *ngIf="selectedTopic.name != '' && selectedTopic.activity.length <= 0"
+              style="color: lightgray; text-align: center">No Activities selected</h5>
+
+          <table *ngIf="this.selectedTopic.activity.length > 0" mat-table [dataSource]="getDatasourceActivity()"
+                 class="mat-elevation-z8">>
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Activity Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.activityName}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef> Delete</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="deselectActivity(element)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsActivity"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsActivity;"></tr>
+          </table>
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>
+

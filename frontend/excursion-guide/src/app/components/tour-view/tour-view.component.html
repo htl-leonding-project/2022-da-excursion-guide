@@ -1,34 +1,55 @@
 <div class="flex flex-column" xmlns:width="http://www.w3.org/1999/xhtml">
-  <div id="top" class=" flex flex-row container"  *ngFor="let item of list">
-    <h1 style="text-align: center;">{{item.type}} {{item.location}}</h1>
-
-    <div class="flex flex-row " style="text-align: center;position: center" *ngIf="selectedValue.id >=0">
-      <div style="width: 60%;float: right;" class="flex flex-column">
-        <p>{{selectedValue.comment}}</p>
+  <div id="top" class=" flex flex-row container" *ngFor="let item of list">
+    <h1 style="text-align: center;padding-top: 10px">{{item.type}} {{item.location}}</h1>
+    <mat-divider></mat-divider>
+    <div class="flex flex-row " style="text-align: center;position: center" *ngIf="selectedValue.name !== ''">
+      <div style="width: 60%;float: right; padding-top: 20px" class="flex flex-column">
+        <mat-card style="padding: 10px; border-radius: 10px">
+          <p>{{selectedValue.comment}}</p>
+        </mat-card>
       </div>
     </div>
-    <div class="flex flex-column" style="text-align: center;position: center">
-      <div *ngFor="let topic of item.topics" class="flex flex-row">
-        <h2 (click)="selectedValue = topic" (dblclick)="selectedValue = notselected"
-            style="width: 40%;">{{topic.name}}</h2>
-      </div>
+    <div class="flex flex-column" style="text-align: center; padding-top: 20px; margin-right: 20px; position: center">
+        <mat-list  *ngFor="let topic of item.topics" class="flex flex-row">
+          <mat-list-item (click)="selectedValue = topic"
+                         mat-ripple
+                         (dblclick)="selectedValue = notselected"
+                         [ngClass]="selectedValue.id == topic.id ? 'selected' : 'notSelected'"
+                         style="width: 40%;">
+          <p [ngClass]="selectedValue.id == topic.id ? 'selected' : 'notSelected'">
+            {{topic.name}}
+          </p>
+          </mat-list-item>
+        </mat-list>
     </div>
   </div>
+
   <div id="bottom" class="flex flex-row container">
-    <h2 style="text-align: center;">Nächster Treffpunkt </h2>
+    <mat-divider></mat-divider>
+    <h2 style="text-align: center; padding-bottom: 10px; padding-top: 20px">Nächster Treffpunkt </h2>
+    <mat-divider></mat-divider>
+
     <div class="" *ngFor="let activity of selectedValue.activity">
       <div *ngIf="activity.public" style="margin: 5%">
         <div style="float: left">
-          <p style="text-align: left;margin-left: 10px">{{activity.activityName}}</p>
-          <p style="text-align: left;margin-left: 10px">{{activity.startDateTime |date:" dd.MM.YYYY hh:mm"}}</p>
+          <p style="text-align: center;margin-left: 5px;word-wrap: break-word;">{{activity.activityName}}</p>
+          <p style="text-align: left;margin-left: 5px">{{activity.startDateTime |date:" dd.MM.YYYY hh:mm"}}</p>
         </div>
-        <div style="float: right;" class="flex flex-row">
-          <a type="button" class="btn btn-primary btn-sm" href="{{getLinkForOpenStreetMap(activity)}}">open street
-            map</a>
+        <div style="float: right;" class="flex flex-row button-width">
+          <a type="button" mat-fab extended color="primary" class="btn btn-primary btn-sm"
+             href="{{getLinkForOpenStreetMap(activity)}}">
+            <mat-icon>map</mat-icon>
+            open street map</a>
           <br>
-          <a type="button" class="btn btn-primary btn-sm" href="{{getLinkForGoogleMaps(activity)}}">google maps</a>
+          <a type="button" mat-fab extended color="primary"
+             class="btn btn-primary btn-sm button-width"
+             style="padding-top: 5px; padding-bottom: 10px"
+             href="{{getLinkForGoogleMaps(activity)}}"><mat-icon>map</mat-icon>google maps</a>
           <br>
-          <a type="button" class="btn btn-primary btn-sm" href="{{openDefaultMap(activity)}}">default map</a>
+          <a type="button" class="btn btn-primary btn-sm" mat-fab extended color="primary"
+             href="{{openDefaultMap(activity)}}">
+            <mat-icon>map</mat-icon>default map
+          </a>
         </div>
       </div>
     </div>

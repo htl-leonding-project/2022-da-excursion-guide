@@ -2,13 +2,13 @@
   position:fixed;
   left: 0;
   right: 0;
-  height: 80%;
+  height: 70%;
 }
 #bottom {
   position:fixed;
   left: 0;
   right: 0;
-  height: 20%;
+  height: 30%;
 }
 
 #top {
@@ -17,4 +17,18 @@
 
 #bottom {
   bottom: 0;
+}
+.button-width{
+  width: 150px;
+}
+
+.selected {
+  color: aliceblue;
+  background-color: #4D27B7;
+  border-radius: 10px;
+}
+
+.notSelected{
+  background-color: #eceaea;
+  border-radius: 10px;
 }

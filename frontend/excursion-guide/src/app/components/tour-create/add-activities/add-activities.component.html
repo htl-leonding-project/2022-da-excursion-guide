@@ -1,0 +1,39 @@
+<div style="margin: 40px">
+  <h1 class="m-auto" style="text-align: left;padding-top: 20px">Activity</h1>
+
+  <mat-divider></mat-divider>
+
+  <div class="form-group">
+    <label class="font-size">Activityname</label><br>
+    <input type="text" class="form-control" name="activity.activityName"
+           [(ngModel)]="activity.activityName">
+
+    <label class="font-size">Start Date & Time</label>
+    <input type="datetime-local" class="form-control" name="activity.startDateTime"
+           [(ngModel)]="activity.startDateTime">
+
+    <label class="font-size">Longitude</label>
+    <input type="number" class="form-control" name="activity.longitude" [(ngModel)]="activity.longitude">
+
+    <label class="font-size">Latitude</label>
+    <input type="number" class="form-control" name="activity.latitude" [(ngModel)]="activity.latitude">
+
+    <label class="font-size">Comment:</label>
+    <textarea class="form-control" name="activity.comment" [(ngModel)]="activity.comment"></textarea>
+
+    <label class="font-size">Public</label>
+    <mat-checkbox name="activity.public" [(ngModel)]="activity.public"></mat-checkbox>
+    <br>
+
+    <label class="font-size">Publication Date:</label>
+    <input type="date" class="form-control" name="activity.publicationDate"
+           [(ngModel)]="activity.publicationDate">
+    <br>
+    <div style="padding-bottom: 30px"></div>
+    <button mat-fab extended color="primary" (click)="AddActivity()">
+      Add Activity
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div style="padding-bottom: 30px"></div>
+</div>

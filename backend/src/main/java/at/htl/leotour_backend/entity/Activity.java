@@ -125,6 +125,8 @@ public class Activity extends PanacheEntityBase {
         this.topic = topic;
     }
 
+
+
     @Override
     public String toString() {
         return "Activity{" +
