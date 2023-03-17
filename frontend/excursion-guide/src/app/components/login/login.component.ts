@@ -29,10 +29,9 @@ export class LoginComponent implements OnInit {
     this.oidcSecurityService
       .checkAuth()
       .subscribe(({isAuthenticated, userData, accessToken, idToken}) => {
+        console.log(userData)
         this.userData = userData;
-        console.log(userData);
       });
-    console.log(this.userData)
     if (this.userData.preferred_username.indexOf('.') > -1 || this.userData.preferred_username == "if180157") {
       this.isTeacher = true
     } else {
