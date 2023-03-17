@@ -62,8 +62,8 @@ const appRoutes: Routes = [
     AuthModule.forRoot({
       config: {
         authority: 'https://auth.htl-leonding.ac.at/realms/htlleonding',
-        redirectUrl: window.location.origin,
-        postLogoutRedirectUri: window.location.origin + '/o.sugic/leotour-frontend',
+        redirectUrl: window.location.origin+ + '/o.sugic/leotour-frontend',
+        postLogoutRedirectUri: window.location.origin ,
         clientId: 'htlleonding',
         scope: 'openid profile email offline_access',
         responseType: 'code',
