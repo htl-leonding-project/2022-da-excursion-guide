@@ -35,8 +35,8 @@ export class TourViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllEvents();
-   // this.getUserLocation();
+   // this.getAllEvents();
+   this.getUserLocation();
     this.getCurrentEvent();
 
   }
