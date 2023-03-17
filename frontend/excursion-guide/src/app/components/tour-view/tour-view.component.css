@@ -2,13 +2,13 @@
   position:fixed;
   left: 0;
   right: 0;
-  height: 70%;
+  height: 60%;
 }
 #bottom {
   position:fixed;
   left: 0;
   right: 0;
-  height: 30%;
+  height: 40%;
 }
 
 #top {
