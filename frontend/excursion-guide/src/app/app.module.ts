@@ -7,11 +7,11 @@ import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UnlockActivityComponent} from './components/unlock-activity/unlock-activity.component';
-import { TourCreateComponent } from './components/tour-create/tour-create.component';
+import {TourCreateComponent} from './components/tour-create/tour-create.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
-import { LoginComponent } from './components/login/login.component';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+import {AuthModule, LogLevel} from 'angular-auth-oidc-client';
+import {LoginComponent} from './components/login/login.component';
+import {OidcSecurityService} from 'angular-auth-oidc-client';
 import {MatIconModule} from "@angular/material/icon";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatInputModule} from "@angular/material/input";
@@ -23,17 +23,21 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
 import {MatRippleModule} from "@angular/material/core";
-import { AddActivitiesComponent } from './components/tour-create/add-activities/add-activities.component';
+import {AddActivitiesComponent} from './components/tour-create/add-activities/add-activities.component';
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 const appRoutes: Routes = [
   {path: 'view', component: TourViewComponent},
   {path: 'create', component: TourCreateComponent},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'unlock-activity', component: UnlockActivityComponent},
-  {path: '', component: TourViewComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   //{ path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
 
@@ -80,11 +84,14 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatCardModule,
     MatRippleModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatGridListModule,
   ],
-  exports:[
-  ],
+  exports: [],
   providers: [
     //{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    TourViewComponent,
   ],
   bootstrap: [AppComponent]
 })

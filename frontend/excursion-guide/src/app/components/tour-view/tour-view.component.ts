@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {EventserviceService} from "../../services/eventservice.service";
 import {Event} from "../../model/event";
 import {Topic} from "../../model/topic";
 import {Activity} from "../../model/activity";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   templateUrl: './tour-view.component.html',
@@ -10,26 +11,40 @@ import {Activity} from "../../model/activity";
   selector: 'app-tour-view'
 })
 export class TourViewComponent implements OnInit {
+  events: Event[] = [];
+  event: Event = {
+    type: "",
+    location: "",
+    topics: [],
+    maxPersonAllowed: 0,
+    participant: [],
+    planedEndDateTime: new Date(),
+    planedStartDateTime: new Date(),
+    currentEvent:false
+  }
+  id: number = 0;
 
-  list: Event[] = [];
   latitude: number = 0;
   longitude: number = 0;
 
   selectedValue: Topic = {id: -1, activity: [], comment: "", name: "", previousTopic: null};
   notselected: Topic = {id: -1, activity: [], comment: "", name: "", previousTopic: null};
 
-  constructor(private eventService: EventserviceService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private eventService: EventserviceService) {
   }
 
   ngOnInit(): void {
     this.getAllEvents();
-    this.getUserLocation();
+   // this.getUserLocation();
+    this.getCurrentEvent();
+
   }
 
   public getAllEvents() {
     this.eventService.getAllEvents()
       .subscribe((data: Event[]) => {
-        this.list = data;
+        this.events = data;
       });
   }
 
@@ -54,6 +69,14 @@ export class TourViewComponent implements OnInit {
   }
 
   openDefaultMap(activity: Activity) {
-    return "https://maps.apple.com/?daddr=" + activity.latitude + "," + activity.longitude+"&saddr="+this.latitude+","+this.longitude;
+    return "https://maps.apple.com/?daddr=" + activity.latitude + "," + activity.longitude + "&saddr=" + this.latitude + "," + this.longitude;
+  }
+
+
+  getCurrentEvent() {
+    this.eventService.getCurrentEvent()
+      .subscribe((data: Event) => {
+        this.event = data;
+      });
   }
 }

@@ -66,7 +66,4 @@ public class ActivityResource {
         acc.setStartDateTime(activity.startDateTime());
         return acc;
     }
-
-
-
 }

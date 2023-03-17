@@ -15,11 +15,24 @@ export class UnlockActivityComponent implements OnInit {
 
   list: Event[] = [];
 
+  event: Event = {
+    type: "",
+    location: "",
+    topics: [],
+    maxPersonAllowed: 0,
+    participant: [],
+    planedEndDateTime: new Date(),
+    planedStartDateTime: new Date(),
+    currentEvent: false
+  }
+  cols: number = 3;
+
   constructor(private eventService: EventserviceService) {
   }
 
   ngOnInit(): void {
-    this.getAllEvents();
+    //this.getAllEvents();
+    this.getCurrentEvent()
   }
 
   getAllEvents() {
@@ -49,5 +62,26 @@ export class UnlockActivityComponent implements OnInit {
       .subscribe((data: ActivityDto) => {
         this.getAllEvents();
       });
+  }
+
+  getCurrentEvent() {
+    this.eventService.getCurrentEvent()
+      .subscribe((data: Event) => {
+        this.event = data;
+      });
+  }
+
+  handleResizeEvent(resizeevent: UIEvent) {
+    //console.log(<Window>resizeevent.target)
+    const target = <Window>resizeevent.target
+
+ /*
+    if (target.innerWidth >= 350 ) {
+      this.cols = 3;
+    } else if (target.innerWidth <= 350) {
+      this.cols = 2;
+    }
+
+  */
   }
 }

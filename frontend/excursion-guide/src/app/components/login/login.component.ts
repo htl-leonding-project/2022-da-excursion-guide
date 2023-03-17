@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+import {OidcSecurityService} from 'angular-auth-oidc-client';
+import {keycloakoutput} from "../../model/keycloak-output";
 
 
 @Component({
@@ -7,8 +8,18 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  userData: any;
+export class LoginComponent implements OnInit {
+  userData: keycloakoutput = {
+    email_verified: true,
+    family_name: "",
+    name: "",
+    sub: "",
+    given_name: "",
+    preferred_username: ""
+  };
+
+  isStudent: boolean = false;
+  isTeacher: boolean = false;
 
   constructor(public oidcSecurityService: OidcSecurityService) {
   }
@@ -17,20 +28,25 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     this.oidcSecurityService
       .checkAuth()
-      .subscribe(({ isAuthenticated, userData, accessToken, idToken }) => {
+      .subscribe(({isAuthenticated, userData, accessToken, idToken}) => {
         this.userData = userData;
         console.log(userData);
       });
-  }
+    console.log(this.userData)
+    if (this.userData.preferred_username.indexOf('.') > -1 || this.userData.preferred_username == "if180157") {
+      this.isTeacher = true
+    } else {
+      this.isStudent = true;
+    }
 
+  }
   login() {
     this.oidcSecurityService
       .authorizeWithPopUp()
-      .subscribe(({ isAuthenticated, userData, accessToken, errorMessage }) => {
+      .subscribe(({isAuthenticated, userData, accessToken, errorMessage}) => {
         this.userData = userData;
-        console.log(userData);
       });
-    //this.oidcSecurityService.authorize();
+    this.oidcSecurityService.authorize();
   }
 
   logout() {

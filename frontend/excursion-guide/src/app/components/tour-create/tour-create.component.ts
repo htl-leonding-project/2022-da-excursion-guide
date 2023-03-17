@@ -8,6 +8,7 @@ import {EventserviceService} from "../../services/eventservice.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {AddActivitiesComponent} from "./add-activities/add-activities.component";
+import {TourViewComponent} from "../tour-view/tour-view.component";
 
 
 @Component({
@@ -24,7 +25,8 @@ export class TourCreateComponent implements OnInit {
     maxPersonAllowed: 0,
     participant: [],
     planedEndDateTime: new Date(),
-    planedStartDateTime: new Date()
+    planedStartDateTime: new Date(),
+    currentEvent:false
   }
   findTopic: Topic = {
     activity: [],
@@ -66,7 +68,8 @@ export class TourCreateComponent implements OnInit {
   topicComment: string = "";
 
   constructor(private eventService: EventserviceService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private view:TourViewComponent) {
   }
 
   ngOnInit() {
@@ -178,5 +181,6 @@ export class TourCreateComponent implements OnInit {
         console.log(error);
       }
     );
+    this.view.ngOnInit();
   }
 }

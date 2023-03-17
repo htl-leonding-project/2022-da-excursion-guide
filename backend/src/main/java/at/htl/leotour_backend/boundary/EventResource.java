@@ -1,6 +1,7 @@
 package at.htl.leotour_backend.boundary;
 
 
+import at.htl.leotour_backend.control.TopicRepository;
 import at.htl.leotour_backend.entity.Activity;
 import at.htl.leotour_backend.entity.Event;
 import at.htl.leotour_backend.entity.Topic;
@@ -47,6 +48,7 @@ public class EventResource {
         newEvent.setType(event.getType());
         newEvent.setPlanedEndDateTime(event.getPlanedEndDateTime());
         newEvent.setPlanedStartDateTime(event.getPlanedStartDateTime());
+        newEvent.setCurrentEvent(event.isCurrentEvent());
 
         for (Person person : event.getParticipant()) {
             person.setEvent(newEvent);
@@ -68,6 +70,34 @@ public class EventResource {
         return Response.ok(newEvent).build();
     }
 
+
+    @GET
+    @Path("getCurrentEvent")
+    public Response getCurrentEvent() {
+        List<Event> list = Event.listAll();
+
+        for (Event event : list) {
+            if (event.isCurrentEvent()) {
+                return Response.ok(event).build();
+            }
+        }
+        return Response.ok().build();
+    }
+
+    @GET
+    @Transactional
+    @Path("updateCurrentEventField/{id}")
+    public Response updateEvent(@PathParam("id") long eventId) {
+
+        em.createNativeQuery("update Event e set currentEvent = false ")
+                .executeUpdate();
+        em.createNativeQuery("update Event e set currentEvent = true where id = :id")
+                .setParameter("id", eventId)
+                .executeUpdate();
+
+        return Response.ok().build();
+    }
+
     @DELETE
     @Transactional
     @Path("deleteEvent/{id}")
@@ -87,6 +117,7 @@ public class EventResource {
         tmp.setPlanedStartDateTime(event.getPlanedStartDateTime());
         tmp.setParticipant(event.getParticipant());
         tmp.setTopics(event.getTopics());
+        tmp.setCurrentEvent(event.isCurrentEvent());
         return Response.ok(event).build();
     }
 

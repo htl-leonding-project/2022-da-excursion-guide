@@ -21,17 +21,20 @@ public class Event extends PanacheEntityBase {
     @JsonManagedReference
     private List<Person> participant;
 
-    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Topic> topics;
 
     private LocalDateTime planedStartDateTime;
     private LocalDateTime planedEndDateTime;
 
+    private boolean currentEvent;
+
     public Event() {
     }
 
-    public Event(String location, int maxPersonAllowed, String type, List<Person> participant, List<Topic> topics, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime) {
+    public Event(long id, String location, int maxPersonAllowed, String type, List<Person> participant, List<Topic> topics, LocalDateTime planedStartDateTime, LocalDateTime planedEndDateTime, boolean currentEvent) {
+        this.id = id;
         this.location = location;
         this.maxPersonAllowed = maxPersonAllowed;
         this.type = type;
@@ -39,6 +42,7 @@ public class Event extends PanacheEntityBase {
         this.topics = topics;
         this.planedStartDateTime = planedStartDateTime;
         this.planedEndDateTime = planedEndDateTime;
+        this.currentEvent = currentEvent;
     }
 
     public long getId() {
@@ -103,5 +107,13 @@ public class Event extends PanacheEntityBase {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isCurrentEvent() {
+        return currentEvent;
+    }
+
+    public void setCurrentEvent(boolean currentEvent) {
+        this.currentEvent = currentEvent;
     }
 }

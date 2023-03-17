@@ -1,25 +1,29 @@
-<div class="flex flex-column" style="text-align: center">
-  <div *ngFor="let event of list">
-    <h1 class="h1" style="text-align: center">{{event.type}} {{event.location}}</h1>
-    <div *ngFor="let topic of event.topics">
-      <h2 class="h2" style="float: left;width: 100%;text-align: center">{{topic.name}}</h2>
-      <div *ngFor="let activity of topic.activity">
-        <table class="table">
-          <div style="margin-left: 5%;margin-right: 5%;text-align: center">
-            <button *ngIf="activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
-                    (click)="changeVisibility(activity,topic)">
-              Aktivität sperren
-            </button>
-            <button *ngIf="!activity.public" class="btn btn-primary" style="width: 50%;height:35%;float: right"
-                    (click)="changeVisibility(activity,topic)">
-              Aktivität freischalten
-            </button>
-            <p style="width: 40%;float: left">{{activity.activityName}}</p>
-          </div>
-        </table>
-      </div>
-    </div>
-  </div>
+<h1 style="text-align: center;padding: 10px;">Aktivitäten freischalten</h1>
+<mat-divider style=" margin-bottom: 30px"></mat-divider>
+<div *ngFor="let topic of event.topics" style="width: 100%;">
+  <h2 class="topicNameHeading mt-2">{{topic.name}}</h2>
+
+
+  <mat-grid-list [cols]="2" rowHeight="3:1" *ngFor="let activity of topic.activity">
+    <mat-grid-tile style="text-align: center;">
+      {{activity.activityName}}
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button *ngIf="activity.public" mat-fab extended color="primary"
+              style="margin: 10px"
+              (click)="changeVisibility(activity,topic)">
+        <mat-icon>lock</mat-icon>
+        Gesperrt
+      </button>
+      <button *ngIf="!activity.public" class="bg-gray-500 btnFreigeschaltet" mat-fab extended color="grey"
+              (click)="changeVisibility(activity,topic)">
+        <mat-icon>lock_open</mat-icon>
+        Freigeschaltet
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-divider></mat-divider>
+  <button mat-fab extended color="primary"><mat-icon>arrow_back</mat-icon>Zurück zum Dashboard</button>
 </div>
 
 
@@ -45,4 +49,32 @@
         (click)="changeVisibility(activity,topic)">
   Aktivität freischalten
 </button>
+-->
+
+<!--
+<div style="text-align: center">
+  <h1 class="h1" style="text-align: center">{{event.type}} {{event.location}}</h1>
+  <div *ngFor="let topic of event.topics">
+    <h2 class="h2" style="float: left;width: 100%;text-align: center">{{topic.name}}</h2>
+    <div *ngFor="let activity of topic.activity">
+      <table class="table">
+        <div>
+          <button *ngIf="activity.public" mat-fab extended color="primary"
+                  style="height: 75px;width:50%;float: right;margin: 10px"
+                  (click)="changeVisibility(activity,topic)">
+            <mat-icon>lock</mat-icon>
+            Aktivität sperren
+          </button>
+          <button *ngIf="!activity.public" mat-fab extended color="primary"
+                  class="material-symbols-outlined"
+                  style="width: 50%;height:75px;float: right;margin: 10px"
+                  (click)="changeVisibility(activity,topic)">
+            Aktivität freischalten
+          </button>
+          <p style="width: 40%;float: left">{{activity.activityName}}</p>
+        </div>
+      </table>
+    </div>
+  </div>
+</div>
 -->

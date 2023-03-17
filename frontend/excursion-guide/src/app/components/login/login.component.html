@@ -1,7 +1,9 @@
-<button class="btn" (click)="login()">Login</button>
-<button class="btn" (click)="logout()">Logout</button>
+<div style="text-align-all: center">
 
-<div *ngIf="userData != null">
-  <h3>User data of signed-in user:</h3>
-  <p>{{getFormattedUserData()}}</p>
+  <button class="btn" (click)="login()">Login</button>
+  <button class="btn" (click)="logout()">Logout</button>
+
+  <app-dashboard *ngIf="isTeacher"></app-dashboard>
+  <app-tour-view *ngIf="isStudent"></app-tour-view>
+
 </div>

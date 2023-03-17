@@ -1,0 +1,55 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">LeoTour</h1>
+    <div style="padding-left: 20px;padding-right: 20px;"></div>
+
+    <button *ngIf="!expandButton" mat-mini-fab
+            (mouseover)="expandButton = true"
+            color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button *ngIf="expandButton" mat-fab extended
+            (mouseleave)="expandButton = false"
+            routerLink="/create"
+            color="primary">
+      <mat-icon>add</mat-icon>
+      Neue Reise anlegen
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list style="margin: 10px;">
+        <a mat-list-item disabled class="font-black">Alle Reisen</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item  (click)="setSelectedEvent(nav)" *ngFor="let nav of fillerNav">{{nav}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content *ngIf="selectedEvent.type !== '' && selectedEvent.location !== ''" style="padding-left: 15px">
+      <h3 style="text-align: center;padding-top: 20px;width: 70%">{{selectedEvent.type}} {{selectedEvent.location}}</h3>
+      <mat-list>
+        <mat-list-item style="height: 90%" lines="3" *ngFor="let topic of selectedEvent.topics">
+          <span matListItemTitle style="padding-top: 10px">{{topic.name}}</span>
+          <p class="max-width-text">{{topic.comment}}</p>
+        </mat-list-item>
+      </mat-list>
+      <button mat-fab extended color="primary" style="margin: 10px;box-shadow: #4D27B7"
+          (click)="setEventForView()">
+        <mat-icon>cached</mat-icon>
+        Reise in der Schüleransicht anzeigen
+      </button>
+      <button mat-fab extended color="primary" style="margin: 10px;box-shadow: #4D27B7"
+              routerLink="/unlock-activity">
+        <mat-icon>lock_open</mat-icon>
+        Aktivitäten freischalten
+      </button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

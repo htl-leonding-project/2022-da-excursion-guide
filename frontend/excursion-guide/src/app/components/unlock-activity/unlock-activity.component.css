@@ -1,0 +1,16 @@
+.mat-list-width {
+  width: 100%;
+}
+
+.topicNameHeading {
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(203, 198, 199, 0.27);
+  border-radius: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.btnFreigeschaltet {
+  margin: 10px;
+}

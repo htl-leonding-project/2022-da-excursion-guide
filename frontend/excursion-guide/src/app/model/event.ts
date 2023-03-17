@@ -10,4 +10,6 @@ export interface Event {
   planedStartDateTime: Date;
   topics:              Topic[];
   type:                string;
+  currentEvent: boolean;
+
 }
