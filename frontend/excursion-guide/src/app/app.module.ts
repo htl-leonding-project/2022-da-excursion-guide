@@ -36,8 +36,8 @@ const appRoutes: Routes = [
   {path: 'create', component: TourCreateComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'unlock-activity', component: UnlockActivityComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent},
+ // {path: 'login', component: LoginComponent},
+  {path: '', component: TourViewComponent},
   //{ path: '**', component: PageNotFoundComponent }, // Wildcard route for a 404 page
 ];
 
