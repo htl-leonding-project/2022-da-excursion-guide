@@ -5,15 +5,16 @@ Die Schüler fahren auf Exkursionen wie z.B Sportwochen im Ausland oder auch im 
 
 \section{Ist-Zustand}
 \setauthor{Oliver Sugic}
-Derzeit werden viele Exkursionen in unbekannte Gebiete unternommen. Es wird mehr Lehrpersonal mitgenommen um so besser auf Schüler und Schülerinnen aufzupassen und den Überblick zu behalten. Dies ist jedoch sehr aufwendig und kostspielig. 
+Es werden viele Exkursionen sowohl innerhalb Österreichs, aber auch ins europäische Ausland durchgeführt. Die Schüler und Schülerinnen werden dabei von den Lehrkräften betreut.
 
-\section{Beschreibung der Problemstellung}
+\section{Problemstellung}
 \setauthor{Oliver Sugic}
-In einer großen Gruppe mit oftmals mehreren Lehrern und Lehrerinnen ist es schwierig, die Schüler zu organisieren und zu kontrollieren und  den Überblick zu behalten. Die Lehrern und Lehrerinnen müssen sich um die Schüler und Schülerinnen kümmern da diese oftmals nicht aufmerksam sind und sich leicht verirren können oder auch von der sich von der Gruppe trennen ohne es zu merken.
+Bei der Durchführung von Exkursionen, Projekt-, oder Sportwochen werden oft Treffpunkte vereinbart, an denen sich die Schülerinnen und Schüler zu einer gewissen Zeit mit den Lehrkräften treffen. Befindet man sich in einer fremden Stadt, so kann das Finden eines Treffpunkts durchaus herausfordernd sein. Auch ist es möglich das die Zeit oder der Ort verwechselt werden wird.   
 
-Oft werden Informationen über die Exkursionen nur mündlich weitergegeben und es gibt keine Möglichkeit diese Informationen nachzulesen. Außerdem kann es passieren, dass die Schüler und Schülerinnen die Informationen nicht richtig verstanden haben oder auch die Informationen nicht richtig weitergegeben wurden.
+\section{Aufgabenstellung}
 
-\newpage
+Es ist eine Applikation zu erstellen, in der die einzelnen Stationen und Treffpunkte der Reise aufgelistet sind. Die Schülerinnen und Schüler werden zwar über die einzelnen Zeile informiert, aber die Treffpunkte die Schülerinnen und Schüler aufrufbar, damit keine Konfusionen entstehen kann.
+
 
 \section{Marktanalyse}
 \setauthor{Oliver Sugic}
@@ -27,7 +28,7 @@ Um ein fertiges Produkt zu verwenden, muss eine Marktanalyse durchgeführt werde
 
 \subsection{Wanderlog}
 \setauthor{Oliver Sugic}
-\cite{Sewell} Wanderlog ist eine mobile App des Unternehmens Travelchime Inc. .Mit dieser App können Reisen geplant und durchgeführt werden. Die App ist kostenlos und kann für Android und iOS heruntergeladen werden. Die App bietet Funktionen wie Planung und Verbesserungen von Reisepläne. Mit der Pro-Version ist es möglich die Route der Reise zu optimieren um Geld zu sparen, als auch die Nutzung der App offline zu ermöglichen. Die Nutzung der Pro-Version kostet allerdings 49.99\$ jährlich
+Wanderlog ist eine mobile App des Unternehmens Travelchime Inc. .Mit dieser App können Reisen geplant und durchgeführt werden. Die App ist kostenlos und kann für Android und iOS heruntergeladen werden. Die App bietet Funktionen wie Planung und Verbesserungen von Reisepläne. Mit der Pro-Version ist es möglich die Route der Reise zu optimieren um Geld zu sparen, als auch die Nutzung der App offline zu ermöglichen. Die Nutzung der Pro-Version kostet allerdings 49.99\$ jährlich.\cite{Sewell}
 
 
 \subsection{TripIt}
@@ -35,32 +36,44 @@ Um ein fertiges Produkt zu verwenden, muss eine Marktanalyse durchgeführt werde
 TripIt ist eine mobile App des Unternehmens Concur Technologies. Durch die Möglichkeiten der App kann die Organisation und Verwaltung einer Reise dem Nutzenden sehr geholfen werden. Die jeweiligen Reisepläne können jederzeit in der App aufgerufen werden. Man kann sich seine Reisestatistiken anzeigen, als auch den CO² Fußabdruck der Reise berechnen lassen. Die App ist kostenlos und kann für Android und iOS heruntergeladen werden. Außerdem wird eine eine Pro-Version der App angeboten, bei der genauerer Informationen über die Flugreise bekannt gegeben werden. Die Nutzung der Pro-Version kostet allerdings 49\$ jährlich.
 \cite{TripIt}
 
-\section{Aufgabenstellung}
+
+\section{Gesamtkonzept}
 \setauthor{Oliver Sugic}
 
+Nach dem die Marktanalyse abgeschlossen war, wurde beschlossen, eine eigene Anwendung unter dem Name LeoTour zu entwickeln. Das System wurde in mehrere Bereiche unterteilt, die zu implementieren waren
 
-\begin{spacing}{2}
-\subsection{Gesamtkonzept}
-\setauthor{Oliver Sugic}
-\end{spacing}
-
-\begin{spacing}{2}
 \subsection{Aufgabenbereiche der vorliegenden Arbeit}
 \setauthor{Oliver Sugic}
-\end{spacing}
 
-\begin{spacing}{2}
+Die Bereiche werden folgendermaßen unterteilt:
+
+\begin{itemize}
+    \item Backend: zur Verwaltung der Daten 
+    \item Frontend: Anzeigen der Daten
+    \item Deployment: Bereitstellung der Anwendung
+\end{itemize}
+
+
 \subsection{Funktionale Anforderungen}
 \setauthor{Oliver Sugic}
-\end{spacing}
 
-\begin{spacing}{2}
+Es ist eine Anwendung zu entwickeln, die ...:
+
+\begin{itemize}
+    \item Lehrekräfte das Erstellen von Reisen ermöglicht
+    \item Schülerinnen und Schüler eine richtige Route angezeigt
+    \item die Verwaltung von Reisen ermöglicht
+\end{itemize}
+
+
 \subsection{Nicht funktionale Anforderungen}
 \setauthor{Oliver Sugic}
-\end{spacing}
 
-\begin{spacing}{2}
+Für die jeweiligen Anforderungen ist es wichtige, ein übersichtliche graphische Oberfläche zu haben, die zu einfache Bedienung ermöglicht.
+
 \section{Ziele}
 \setauthor{Oliver Sugic}
-\end{spacing}
-    
+
+Durch einen reibungslosen Ablaufs der Veranstaltung, sodass keine teilnehmenden Schüler gehen in einer fremden Stadt verloren. Somit wird die Sicherheit der Teilnehmer erhöht.
+
+Um den Reisenden die Reise zu vereinfachen, soll die App die Koordinaten der jeweiligen Ziele anzeigen. Somit können bei Ausflügen von z.B Städte oder sonstigen Sehenswürdigkeiten Probleme wie z.B das Verlieren von Personen oder das Antreffen bei einem falschen Ziel verhindert werden. Den benutzenden Personen soll der Ausflug erleichtert werden, sodass man ihn ohne Probleme genießen kann

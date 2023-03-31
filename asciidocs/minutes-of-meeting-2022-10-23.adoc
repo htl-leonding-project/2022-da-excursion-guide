@@ -32,7 +32,7 @@ endif::backend-html5[]
 |von-bis
 |Fr. 23.10.2022 09:30-10:40
 |Dauer
-|20 min
+|70 min
 |===
 
 == Besprochene Themen
@@ -47,4 +47,4 @@ image::wire_frame-view_page.png[]
 image::wireframe_example.png[role=text-center]
 
 * Glosar: Begriffe mit Bsp anführen
-* Karte wegen Platzprobleme entferne
+* Karte wegen Platzprobleme entfernen

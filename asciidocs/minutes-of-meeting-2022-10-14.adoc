@@ -1,4 +1,4 @@
-= Besprechungsprotokoll 30.09.2022
+= Besprechungsprotokoll 14.10.2022
 Oliver Sugic
 1.0, 2022-09-30: Besprechungsprotokoll
 ifndef::imagesdir[:imagesdir: images]
@@ -29,7 +29,7 @@ endif::backend-html5[]
 |Htl-Leonding
 
 |von-bis
-|Fr. 09.05.2022 12:40-
+|Fr. 14.10.2022 17:15-17:35
 |Dauer
 |20 min
 |===

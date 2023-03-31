@@ -1,10 +1,74 @@
-\section{Standorterkennung durch Angular und Browser}
-\setauthor{Oliver Sugic}
-
-
-\section{Die Schüler Ansicht}
-\setauthor{Oliver Sugic}
-
 \section{JsonManagedReference und JsonBackReference}
 \setauthor{Oliver Sugic}
-    
+
+Im Laufe de Entwicklung des Backend stoß ich auf eine Problem, wo ich auf eine unendliche Rekursion zurückgab in meinen GET Requests. Das Problem bestand darin, das mit bidirektionale Beziehungen das Datenmodell implementiert wurde. Das heißt, das ich zwar eine Liste von Personen in der Event Klasse habe, ich aber auch ein Event Objekt in der Klasse Person habe. Somit entsteht bei der Serialisierung von eine Endlosschleife
+
+
+\begin{lstlisting}[numbers=left,language=java,caption=Event Klasse,label={lst:event_class}]{}
+@Entity
+public class Event extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String location;
+    private int maxPersonAllowed;
+    private String type;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Person> participant;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Topic> topics;
+
+    private LocalDateTime planedStartDateTime;
+    private LocalDateTime planedEndDateTime;
+
+    private boolean currentEvent;
+
+    public Event() {
+    }
+
+}
+\end{lstlisting}
+
+\newpage 
+
+\begin{lstlisting}[numbers=left,language=java,caption=Person Klasse,label={lst:Person_Klasse}]{}
+@Entity
+public class Event extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String location;
+    private int maxPersonAllowed;
+    private String type;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Person> participant;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Topic> topics;
+
+    private LocalDateTime planedStartDateTime;
+    private LocalDateTime planedEndDateTime;
+
+    private boolean currentEvent;
+
+    public Event() {
+    }
+
+}
+\end{lstlisting}
+
+
+Daher wurde nach einer Lösung gesucht und diese war schnell gefunden
+
+\begin{itemize}
+    \item @JsonManagedReference 
+    \item @JsonBackReference
+\end{itemize}
+
+
+Diese ermöglichen es, dass die Serialisierung richtig stadtfindet indem die Entität, welche @JsonManagedReference beinhaltet, serialisiert wird  und die Entität, welche @JsonBackReference beinhaltet, ignoriert wird.\cite{Jackson}
